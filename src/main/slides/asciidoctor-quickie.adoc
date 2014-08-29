@@ -1,0 +1,86 @@
+= Asciidoctor et Java
+Benoit Prioux
+
+== Me
+
+* Développeur Java depuis presque 10 ans
+* Membre du Bordeaux JUG
+* Travaille chez Lectra, éditeur de logiciels dans le monde du Fashion
+
+== Quand il faut écrire de la documentation ....
+
+[options="step"]
+* On n'a pas envie...
+[options="step"]
+* Les outils ne nous aident pas toujours
+[options="step"]
+* La maintenance est difficile
+[options="step"]
+* Le format est choisi dès la 1ère ligne
+
+[options="step"]
+Bref si on n'est pas obligé, on choisit souvent de ne pas le faire (bouhh)
+
+== Une solution
+
+Utiliser un langage de *balisage* : markdown, wiki, docbook, asciidoc
+
+parce que :
+[options="step"]
+* la forme prend moins d'importance que le fond
+[options="step"]
+* c'est du texte, donc un éditeur classique suffit
+[options="step"]
+* on peut gérer l'historique avec un SCM
+[options="step"]
+* à partir d'une source, on peut publier vers plusieurs formats
+[options="step"]
+* on a un peu l'impression de hacker ;-)
+
+== Asciidoc
+
+* Langage créé en 2002
+* Syntaxe proche de markdown mais en plus évolué
+* Plus polyvalent que wiki
+* Plus léger que docbook
+* 1^ère^ implémentation du processeur en Python
+
+== Exemple
+
+[source]
+----
+= Hello, Jug Summer Camp!
+Benoit Prioux <benoit.prioux@gmail.com>
+
+An introduction to http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source, ruby]
+puts "Hello, World!"
+----
+
+== Asciidoctor
+
+* Implémentation open-source écrit en `Ruby`
+* Permet de convertir des fichiers Asciidoc vers différents backends : docbook, html5, epub, pdf (beta) ...
+* 12 août 2014 : `1.5.0`, première version _stable_
+** après 2 ans de développement
+** 50 contributeurs, 1800 commits, 1500 tests
+** introduit des évolutions de la syntaxe Asciidoc, tout en gardant la compatibilité Asciidoc
+
+== Et si je ne connais pas `Ruby`, c'est pas pour moi ?
+
+[options="step"]
+Heureusement, il y a JRuby, une implémentation de Ruby sur la JVM.
+
+Asciidoctorj fait le bridge de Asciidoctor vers la JVM.
+
+[canvas-image="images/example.png"]
+== Slide Two's Title will not be displayed
+
+[role="canvas-caption", position="center-up"]
+This text is displayed on top of the example.png image.
