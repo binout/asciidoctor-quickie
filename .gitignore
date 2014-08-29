@@ -6,3 +6,5 @@ release.properties
 .idea
 *.iml
 .DS_Store
+diag*.png
+diag*.cache

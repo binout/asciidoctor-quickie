@@ -103,6 +103,7 @@
                             <templateDir>src/main/asciidoctor-backends/haml</templateDir>
                             <outputDirectory>${project.slides.directory}</outputDirectory>
                             <backend>deckjs</backend>
+                            <sourceHighlighter>coderay</sourceHighlighter>
                             <attributes>
                                 <deckjs_theme>swiss</deckjs_theme>
                                 <deckjs_transition>fade</deckjs_transition>

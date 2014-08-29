@@ -1,48 +1,46 @@
 = Asciidoctor et Java
-Benoit Prioux
+Benoit Prioux <benoit.prioux@gmail.com>
+
+image::jugsummercamp.png[]
 
 == Me
 
 * Développeur Java depuis presque 10 ans
 * Membre du Bordeaux JUG
-* Travaille chez Lectra, éditeur de logiciels dans le monde du Fashion
+** Une petite pensée pour `bdx.io` le 17 octobre !
+* Technical Leader chez Lectra, éditeur de logiciels dans le monde de la mode
+* @binout
+* http://javaonemorething.wordpress.com/
 
-== Quand il faut écrire de la documentation ....
+== Quand il faut écrire de la documentation
 
 [options="step"]
-* On n'a pas envie...
+On n'a souvent pas très envie...
 [options="step"]
 * Les outils ne nous aident pas toujours
-[options="step"]
 * La maintenance est difficile
-[options="step"]
-* Le format est choisi dès la 1ère ligne
-
-[options="step"]
-Bref si on n'est pas obligé, on choisit souvent de ne pas le faire (bouhh)
+* Le format n'est pas adapté
+* on perd du temps sur la mise en forme
 
 == Une solution
 
 Utiliser un langage de *balisage* : markdown, wiki, docbook, asciidoc
-
+[options="step"]
 parce que :
 [options="step"]
 * la forme prend moins d'importance que le fond
-[options="step"]
 * c'est du texte, donc un éditeur classique suffit
-[options="step"]
 * on peut gérer l'historique avec un SCM
-[options="step"]
-* à partir d'une source, on peut publier vers plusieurs formats
-[options="step"]
+* à partir d'une même source, on peut publier vers plusieurs formats
 * on a un peu l'impression de hacker ;-)
 
 == Asciidoc
 
 * Langage créé en 2002
 * Syntaxe proche de markdown mais en plus évolué
-* Plus polyvalent que wiki
 * Plus léger que docbook
+* Plus polyvalent que wiki
+* Notions d'attributs (variables permettant des substitutions)
 * 1^ère^ implémentation du processeur en Python
 
 == Exemple
@@ -59,28 +57,213 @@ An introduction to http://asciidoc.org[AsciiDoc].
 * item 1
 * item 2
 
-[source, ruby]
-puts "Hello, World!"
+NOTE: Atom has an Asciidoc package !
 ----
 
 == Asciidoctor
 
+https://github.com/asciidoctor
+
 * Implémentation open-source écrit en `Ruby`
-* Permet de convertir des fichiers Asciidoc vers différents backends : docbook, html5, epub, pdf (beta) ...
-* 12 août 2014 : `1.5.0`, première version _stable_
-** après 2 ans de développement
+* Permet de convertir des fichiers `asciidoc` vers différents backends : `docbook`, `html5`, `epub`, `pdf` (et même `deckjs`)
+* 12 août 2014 : sortie de la version `1.5.0`
+** 1^ère^ version majeure après 2 ans de développement
 ** 50 contributeurs, 1800 commits, 1500 tests
-** introduit des évolutions de la syntaxe Asciidoc, tout en gardant la compatibilité Asciidoc
+** introduit des évolutions de la syntaxe `asciidoc`, tout en gardant la compatibilité
 
 == Et si je ne connais pas `Ruby`, c'est pas pour moi ?
 
 [options="step"]
-Heureusement, il y a JRuby, une implémentation de Ruby sur la JVM.
+Heureusement, il y a `JRuby`, une implémentation de `Ruby` sur la JVM.
 
-Asciidoctorj fait le bridge de Asciidoctor vers la JVM.
+[options="step"]
+Et on remercie le projet `asciidoctorj` qui fournit :
 
-[canvas-image="images/example.png"]
-== Slide Two's Title will not be displayed
+[options="step"]
+* une integration complète de `asciidoctor` dans le monde Java
+* une API
+* une CLI
 
-[role="canvas-caption", position="center-up"]
-This text is displayed on top of the example.png image.
+[options="step"]
+https://github.com/asciidoctor/asciidoctorj
+
+
+== Asciidoctorj in action
+
+.Maven
+[source,xml]
+----
+<dependency>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctorj</artifactId>
+  <version>1.5.0</version>
+</dependency>
+----
+.Gradle
+[source,groovy]
+----
+dependencies {
+    compile('org.asciidoctor:asciidoctorj:1.5.0') {transitive=false}
+}
+----
+
+== Asciidoctor et Maven (1)
+
+.Declaration du plugin
+[source,xml]
+----
+<plugin>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-maven-plugin</artifactId>
+  <version>1.5.0</version>
+  ...
+</plugin>
+----
+
+== Asciidoctor et Maven (2)
+
+.Convertit les fichiers `src/main/asciidoc` en html dans `target/generated-docs`
+[source,xml]
+----
+<plugin>
+  ...
+  <executions>
+    <execution>
+      <id>output-html</id>
+      <phase>generate-resources</phase>
+      <goals>
+        <goal>process-asciidoc</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+----
+
+== Asciidoctor et Maven (3)
+
+.S'intègre à la génération de site Maven (`src/site/asciidoc`)
+[source,xml]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-site-plugin</artifactId>
+    <version>3.2</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctor-maven-plugin</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+    </dependencies>
+</plugin>
+----
+
+== Asciidoctor et Gradle (1)
+
+.build.gradle
+[source,groovy]
+[subs="attributes"]
+----
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.0'
+    }
+}
+
+apply plugin: 'org.asciidoctor.gradle.asciidoctor'
+----
+
+== Asciidoctor et Gradle (2)
+
+.Convertit les fichiers `src/asciidoc` en html dans `build/docs`
+[source,groovy]
+----
+asciidoctor {
+    outputDir = new File("$buildDir/docs")
+    options = [
+        doctype: 'book',
+        attributes: [
+            'source-highlighter': 'coderay',
+            toc                 : ''
+        ]
+    ]
+}
+----
+== Asciidoctor et Ant (unofficial)
+
+.Besoin de "jouer" avec le classloader de `Ant`
+[source,xml]
+----
+<target name="doc">
+  <taskdef resource="net/jtools/classloadertask/antlib.xml" classpath="lib/ant-classloadertask.jar"/>
+  <classloader loader="thread" classpath="lib/asciidoctor-ant.jar"/>
+
+  <taskdef name="asciidoctor" classname="org.asciidoctor.ant.AsciidoctorAntTask"/>
+  <asciidoctor sourceDirectory="src/asciidoc" outputDirectory="build/docs"/>
+</target>
+----
+
+== Asciidoctor et Javadoc (1)
+
+[source]
+.Javadoc traditionnelle
+----
+/**
+ * <h1>Asciidoclet</h1>
+ * <p>Sample comments that include {@code source code}.</p>
+ *
+ * <pre>{@code
+ *     {@literal @}SuppressWarnings("UnusedDeclaration")
+ *     public static void main(String... args) {
+ *         System.out.println("Hello World");
+ *     }
+ * }</pre>
+ */
+----
+
+== Asciidoctor et Javadoc (2)
+
+[source]
+.Javadoc avec Asciidoclet
+----
+/**
+ * = Asciidoclet
+ *
+ * Sample comments that include `source code`.
+ *
+ * [source,java]
+ * --
+ *    @SuppressWarnings("UnusedDeclaration")
+ *    public static void main(String... args) {
+ *        System.out.println("Hello World");
+ *    }
+ * --
+ *
+ */
+----
+
+== Et bien plus encore ...
+
+Il est possible de coder des extensions pour `asciidoctor` (comme l'excellent `asciidoctor-diagram`).
+
+[ditaa]
+----
+   +-----------+   asciidoctor - diagram   +------------------+
+   | Ascii art |-------------------------->|  Diagram in PNG  |
+   |  (ditaa)  |                           +------------------+
+   +-----------+
+----
+
+Depuis `asciidoctorj:1.5.0`, on peut :
+
+* charger des extensions écrites en ruby (gems)
+* écrire des extensions en Java, Groovy, Scala, ...
+
+[canvas-image="images/asciidoctor-ftw.jpg"]
+== Dernier slide
+[role="canvas-caption", position="center-down"]
+Thanks
