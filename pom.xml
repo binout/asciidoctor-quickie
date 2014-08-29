@@ -10,6 +10,7 @@
 
     <properties>
         <asciidoctor.version>1.5.0</asciidoctor.version>
+        <project.slides.directory>${project.build.directory}/generated-slides</project.slides.directory>
     </properties>
 
     <repositories>
@@ -100,7 +101,7 @@
                         <configuration>
                             <sourceDirectory>src/main/slides</sourceDirectory>
                             <templateDir>src/main/asciidoctor-backends/haml</templateDir>
-                            <outputDirectory>${project.build.directory}/generated-slides</outputDirectory>
+                            <outputDirectory>${project.slides.directory}</outputDirectory>
                             <backend>deckjs</backend>
                             <attributes>
                                 <deckjs_theme>swiss</deckjs_theme>
@@ -128,5 +129,37 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <properties>
+                <github.global.server>github</github.global.server>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <version>0.9</version>
+                        <configuration>
+                            <message>Updating slides for ${project.version}</message>
+                            <outputDirectory>${project.slides.directory}</outputDirectory>
+                            <repositoryName>asciidoctor-quickie</repositoryName>
+                            <repositoryOwner>binout</repositoryOwner>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>install</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
