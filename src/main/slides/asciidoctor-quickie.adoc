@@ -1,30 +1,31 @@
 = Asciidoctor et Java
 Benoit Prioux <benoit.prioux@gmail.com>
-
-image::jugsummercamp.png[]
+:icons: font
 
 == Me
+
+icon:twitter[] @binout +
+icon:github[] binout
 
 * Développeur Java depuis presque 10 ans
 * Membre du Bordeaux JUG
 ** Une petite pensée pour `bdx.io` le 17 octobre !
 * Technical Leader chez Lectra, éditeur de logiciels dans le monde de la mode
-* @binout
-* http://javaonemorething.wordpress.com/
 
 == Quand il faut écrire de la documentation
 
-[options="step"]
-On n'a souvent pas très envie...
+[.text-center]
+image::nodoc.jpg[]
+
 [options="step"]
 * Les outils ne nous aident pas toujours
 * La maintenance est difficile
 * Le format n'est pas adapté
-* on perd du temps sur la mise en forme
+* On perd du temps sur la mise en forme
 
 == Une solution
 
-Utiliser un langage de *balisage* : markdown, wiki, docbook, asciidoc
+Utiliser un langage de *balisage* : markdown, wiki, latex, asciidoc, ...
 [options="step"]
 parce que :
 [options="step"]
@@ -38,10 +39,11 @@ parce que :
 
 * Langage créé en 2002
 * Syntaxe proche de markdown mais en plus évolué
-* Plus léger que docbook
-* Plus polyvalent que wiki
-* Notions d'attributs (variables permettant des substitutions)
+* Plus polyvalent que wiki, plus simple que Latex
 * 1^ère^ implémentation du processeur en Python
+
+[quote, Linus Torvalds]
+Use AsciiDoc for document markup. Really. It's actually readable by humans, easier to parse and way more flexible than XML.
 
 == Exemple
 
@@ -71,13 +73,26 @@ https://github.com/asciidoctor
 ** 50 contributeurs, 1800 commits, 1500 tests
 ** introduit des évolutions de la syntaxe `asciidoc`, tout en gardant la compatibilité
 
+[.text-center]
+image::asciidoctor.png[]
+
+== Ils utilisent déjà `asciidoctor`
+
+* Github
+* Groovy
+* Arquillian
+* Spring
+* Golo
+* Ceylon
+* O'Reilly
+
 == Et si je ne connais pas `Ruby`, c'est pas pour moi ?
 
 [options="step"]
-Heureusement, il y a `JRuby`, une implémentation de `Ruby` sur la JVM.
+image::jruby.png[]
 
 [options="step"]
-Et on remercie le projet `asciidoctorj` qui fournit :
++ `asciidoctorj` =
 
 [options="step"]
 * une integration complète de `asciidoctor` dans le monde Java
