@@ -6,6 +6,15 @@
 <meta content="Asciidoctor 1.5.0" name="generator" />
 <meta content="Benoit Prioux" name="author" />
 <title>Asciidoctor et Java</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 1.2em; height: 1.2em; font-size: 0.9em; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -0.1em; }
+.conum * { color: white !important; }
+.conum + b { display: none; }
+.conum:after { content: attr(data-value); }
+.conum:not([data-value]):empty { display: none; }
+.colist table td:first-of-type { padding-right: 0.25em; }
+</style>
 <style>
 /* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
 /*pre.CodeRay {background-color:#f7f7f8;}*/
@@ -116,17 +125,10 @@ table.CodeRay td.code>pre{padding:0}
 <span id="email"><a href="mailto:benoit.prioux@gmail.com">benoit.prioux@gmail.com</a></span>
 <br />
 </section>
-<div id="preamble">
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img alt="jugsummercamp" src="images/jugsummercamp.png" />
-</div>
-</div>
-</div>
-</div>
 <section class="slide" id="_me">
 <h2>Me</h2>
+<div class="paragraph"><p><span class="icon"><i class="icon-twitter"></i></span> @binout<br />
+<span class="icon"><i class="icon-github"></i></span> binout</p></div>
 <div class="ulist">
 <ul>
 <li>Développeur Java depuis presque 10 ans</li>
@@ -137,26 +139,28 @@ Membre du Bordeaux JUG<div class="ulist">
 </ul>
 </div></p></li>
 <li>Technical Leader chez Lectra, éditeur de logiciels dans le monde de la mode</li>
-<li>@binout</li>
-<li><a class="bare" href="http://javaonemorething.wordpress.com/">http://javaonemorething.wordpress.com/</a></li>
 </ul>
 </div>
 </section>
 <section class="slide" id="_quand_il_faut_écrire_de_la_documentation">
 <h2>Quand il faut écrire de la documentation</h2>
-<div class="paragraph slide"><p>On n&#8217;a souvent pas très envie&#8230;&#8203;</p></div>
+<div class="imageblock text-center">
+<div class="content">
+<img alt="nodoc" src="images/nodoc.jpg" />
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li class="slide">Les outils ne nous aident pas toujours</li>
 <li class="slide">La maintenance est difficile</li>
 <li class="slide">Le format n&#8217;est pas adapté</li>
-<li class="slide">on perd du temps sur la mise en forme</li>
+<li class="slide">On perd du temps sur la mise en forme</li>
 </ul>
 </div>
 </section>
 <section class="slide" id="_une_solution">
 <h2>Une solution</h2>
-<div class="paragraph"><p>Utiliser un langage de <strong>balisage</strong> : markdown, wiki, docbook, asciidoc</p></div>
+<div class="paragraph"><p>Utiliser un langage de <strong>balisage</strong> : markdown, wiki, latex, asciidoc, &#8230;&#8203;</p></div>
 <div class="paragraph slide"><p>parce que :</p></div>
 <div class="ulist">
 <ul>
@@ -174,11 +178,17 @@ Membre du Bordeaux JUG<div class="ulist">
 <ul>
 <li>Langage créé en 2002</li>
 <li>Syntaxe proche de markdown mais en plus évolué</li>
-<li>Plus léger que docbook</li>
-<li>Plus polyvalent que wiki</li>
-<li>Notions d&#8217;attributs (variables permettant des substitutions)</li>
+<li>Plus polyvalent que wiki, plus simple que Latex</li>
 <li>1<sup>ère</sup> implémentation du processeur en Python</li>
 </ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+Use AsciiDoc for document markup. Really. It&#8217;s actually readable by humans, easier to parse and way more flexible than XML.
+<div class="attribution">
+<cite>Linus Torvalds</cite>
+</div>
+</blockquote>
 </div>
 </section>
 <section class="slide" id="_exemple">
@@ -216,11 +226,34 @@ NOTE: Atom has an Asciidoc package !</code></pre>
 </div></p></li>
 </ul>
 </div>
+<div class="imageblock text-center">
+<div class="content">
+<img alt="asciidoctor" src="images/asciidoctor.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_ils_utilisent_déjà_code_asciidoctor_code">
+<h2>Ils utilisent déjà <code>asciidoctor</code></h2>
+<div class="ulist">
+<ul>
+<li>Github</li>
+<li>Groovy</li>
+<li>Arquillian</li>
+<li>Spring</li>
+<li>Golo</li>
+<li>Ceylon</li>
+<li>O&#8217;Reilly</li>
+</ul>
+</div>
 </section>
 <section class="slide" id="_et_si_je_ne_connais_pas_code_ruby_code_c_est_pas_pour_moi">
 <h2>Et si je ne connais pas <code>Ruby</code>, c&#8217;est pas pour moi ?</h2>
-<div class="paragraph slide"><p>Heureusement, il y a <code>JRuby</code>, une implémentation de <code>Ruby</code> sur la JVM.</p></div>
-<div class="paragraph slide"><p>Et on remercie le projet <code>asciidoctorj</code> qui fournit :</p></div>
+<div class="imageblock slide">
+<div class="content">
+<img alt="jruby" src="images/jruby.png" />
+</div>
+</div>
+<div class="paragraph slide"><p>+ <code>asciidoctorj</code> =</p></div>
 <div class="ulist">
 <ul>
 <li class="slide">une integration complète de <code>asciidoctor</code> dans le monde Java</li>
