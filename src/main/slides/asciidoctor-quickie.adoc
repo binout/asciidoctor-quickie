@@ -4,24 +4,20 @@ Benoit Prioux <benoit.prioux@gmail.com>
 
 == Me
 
+image::avatar.png[float="right"]
+
 icon:twitter[] @binout +
-icon:github[] binout
+icon:github[] https://github.com/binout
 
 * Développeur Java depuis presque 10 ans
 * Membre du Bordeaux JUG
 ** Une petite pensée pour `bdx.io` le 17 octobre !
 * Technical Leader chez Lectra, éditeur de logiciels dans le monde de la mode
 
-== Quand il faut écrire de la documentation
-
-[.text-center]
-image::nodoc.jpg[]
-
-[options="step"]
-* Les outils ne nous aident pas toujours
-* La maintenance est difficile
-* Le format n'est pas adapté
-* On perd du temps sur la mise en forme
+[canvas-image="images/commit-strip.png"]
+== Ecrire une doc ...
+[role="canvas-caption"]
+Ecrire une doc ...
 
 == Une solution
 
@@ -36,6 +32,8 @@ parce que :
 * on a un peu l'impression de hacker ;-)
 
 == Asciidoc
+
+image::asciidoc.png[float="right"]
 
 * Langage créé en 2002
 * Syntaxe proche de markdown mais en plus évolué
@@ -64,6 +62,8 @@ NOTE: Atom has an Asciidoc package !
 
 == Asciidoctor
 
+image:asciidoctor.png[float="right"]
+
 https://github.com/asciidoctor
 
 * Implémentation open-source écrit en `Ruby`
@@ -73,35 +73,18 @@ https://github.com/asciidoctor
 ** 50 contributeurs, 1800 commits, 1500 tests
 ** introduit des évolutions de la syntaxe `asciidoc`, tout en gardant la compatibilité
 
-[.text-center]
-image::asciidoctor.png[]
-
+[canvas-image="images/use-asciidoctor.jpg"]
 == Ils utilisent déjà `asciidoctor`
-
-* Github
-* Groovy
-* Arquillian
-* Spring
-* Golo
-* Ceylon
-* O'Reilly
+[role="canvas-caption"]
+Ils utilisent déjà `asciidoctor`
 
 == Et si je ne connais pas `Ruby`, c'est pas pour moi ?
 
 [options="step"]
-image::jruby.png[]
+image:jruby.png[]
 
 [options="step"]
-+ `asciidoctorj` =
-
-[options="step"]
-* une integration complète de `asciidoctor` dans le monde Java
-* une API
-* une CLI
-
-[options="step"]
-https://github.com/asciidoctor/asciidoctorj
-
+image:asciidoctorj.png[]
 
 == Asciidoctorj in action
 
@@ -277,8 +260,3 @@ Depuis `asciidoctorj:1.5.0`, on peut :
 
 * charger des extensions écrites en ruby (gems)
 * écrire des extensions en Java, Groovy, Scala, ...
-
-[canvas-image="images/asciidoctor-ftw.jpg"]
-== Dernier slide
-[role="canvas-caption", position="center-down"]
-Thanks
