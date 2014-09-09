@@ -9,6 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <asciidoctor.version>1.5.0</asciidoctor.version>
         <project.slides.directory>${project.build.directory}/generated-slides</project.slides.directory>
     </properties>
@@ -28,6 +32,17 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj</artifactId>
+            <version>${asciidoctor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
         <dependency>
             <groupId>rubygems</groupId>
             <artifactId>asciidoctor-diagram</artifactId>

@@ -1,0 +1,123 @@
+= JugSummerCamp
+Benoit Prioux <benoit.prioux@gmail.com>
+:icons: font
+
+Le *vendredi 19 septembre 2014* aura lieu la *cinquième édition* du Jug Summer Camp.
+
+== Planning
+
+[options="header"]
+|===
+| Date | icon:map-marker[] Salle Chanchardon | icon:map-marker[] Salle Casoar Tadorne
+|icon:clock-o[] *10:00 - 11:00* | Ceylon d‘ici à l‘infini : tour d‘horizon et le futur | Lucy in the Sky with Docker
+|icon:clock-o[] *11:00 - 12:00* | Cloud First | Docker : Zéro => Héro
+|icon:clock-o[] *12:00 - 12:15* | MongoDB Aggregation Framework in action ! | LikeBox, votre avis nous intéresse
+|icon:clock-o[] *12:15 - 12:30* | Asciidoctor et Java | Améliorer la qualité de votre application AngularJS avec ESLint
+|icon:clock-o[] *13:20 - 13:35* | Une fille dans mon équipe ? | Mongodb aggregation pipeline
+|icon:clock-o[] *13:35 - 13:50* | Développons une application web AngularJS/Java8 dirigé par les tests | Soyez Productifs ! "I MEAN it !"
+|icon:clock-o[] *14:00 - 15:00* | Let's Invoke Dynamite in JavaEE with InvokeDynamic | Drop Your Table ! MongoDB Schema Design
+|icon:clock-o[] *15:00 - 16:00* | Et si vous développiez dans le Cloud avec Codenvy ? | Web temps réel avec SimpleWeb4J
+|icon:clock-o[] *16:15 - 17:15* | Golo, petit mais costaud |  Advanced search for your legacy application
+|icon:clock-o[] *17:15 - 18:10* | Sirius 1.0 : un schéma vaut mieux qu'un long discours |  I don't always write Reactive applications but when I do, it runs on Raspberry Pi
+
+|===
+
+== Speakers
+
+=== Alexandre Delègue
+
+Alexandre Delègue est ingénieur d'études chez SERLI, il travaille principalement autour des technologies Java / JavaEE / Spring mais aussi sur des problématiques d'intégration continue, de qualimétrie et même récemment sur un projet de centralisation des logs. Ses expériences passées l'ont également amené à travailler sur les applications de gestion ainsi que sur un site web grand public notamment sur les problématiques de sécurité, de performance et de scalabilité.
+
+=== Antoine Sabot-Durand
+
+Après avoir travaillé pendant plus de 15 ans dans différentes société de service en informatique, Antoine est aujourd’hui employé chez Red Hat ou il co-dirige la spécification CDI et est en charge du développement de l’éco-système CDI. Il est également tech lead sur le projet Agorava permettant de développer des applications clientes des principaux réseaux sociaux.
+
+=== Benoît Prioux
+
+Je suis Technical Leader au centre R&D de Lectra, éditeur de logiciel dans le monde de la mode. Je suis un développeur Java depuis 2005, et membre du bureau du Bordeaux JUG depuis deux ans.
+
+=== Cécilia Bossard
+
+Mon but est d'aider les équipes à produire des logiciels utiles aux utilisateurs finaux. Pour cela, je les accompagne en intégrant les équipes de développement ou en les assistant dans leur transition agile.
+
+Impliquée dans la communauté agile nantaise, je participe également à l'organisation de l'Agile Tour de Nantes.
+
+Femme développeuse, je suis également co-fondatrice du groupe Women In Technology à Nantes, dont le but est de promouvoir les femmes dans la technique.
+
+=== David Gageot
+
+Bonjour, je suis David Gageot, développeur indépendant et Java Champion. Ma passion ? L'écriture de logiciels pointus mais simples. J'ai pour leitmotiv d'être un facilitateur qui, par ma créativité et mon expertise, aide les équipes à être plus innovantes et plus efficaces.
+
+Je participe à des projets Java depuis 1998, comme responsable R&D chez l'éditeur Adesoft puis directeur technique chez Valtech Technology, CTO chez Algodeal, un fond d'investissement quantitatif puis développeur chez SonarSource, la société derrière Sonar.
+
+Vous suivez peut-être mon blog JavaBien! depuis 2004.
+
+=== David Pilato
+
+David Pilato is Technical Advocate at Elasticsearch and the creator of the Elasticsearch French Speakers User Group. He is a a frequent speaker about all things Elasticsearch, including previous editions of Devoxx (Belgium 2013 plus France 2012 & 2013). In his free time, he enjoys coding and DJs four times per year, just for fun. He lives with his family in Cergy, France.
+
+=== Didier Girard
+
+=== Emmanuel Demey
+
+Membre d'une équipe fournissant des conseils dans les technologies Web et Mobile, je suis spécialisé dans les technologies JavaScript : AngularJS, jQuery, ... Je porte également un très grand intérêt pour les outils Node.js : Grunt, Bower, ESLint...
+
+J'ai déjà eu la chance de participer à des conférences : Scala/Akka, Les CSS Préprocesseurs, Les Applications Hybrides, L'Accessibilité Web, ...
+
+Vous pouvez me suivre sur @EmmanuelDemey.
+
+=== Étienne Juliot
+
+Etienne Juliot est co-fondateur et vice président de Obeo, une société spécialisée dans les outils de modélisation. Il a plus de 14 ans d'expérience en développement Java et architecture logicielle pour les systèmes d'information et les systèmes embarqués. Il est impliqué dans plusieurs projets Eclipse (Acceleo, Sirius, EMF, eGit, etc.) et est un des membres du board de direction de la fondation Eclipse.
+
+Il gère des collaborations stratégiques avec de grands groupes et participent activement à plusieurs consortiums : fondateur de Polarsys, de Alliance Libre, leader de projets de R&D, orateurs à des conférences internationales telles que EclipseCon et le fameux JUG Summer Camp.
+
+=== Florent Benoit
+
+lorent Benoit travaille comme expert Java EE et OSGi pour Serli. Il travaille en ce moment sur l’éditeur cloud Codenvy avec le support de technologies JavaScript comme AngularJS, Grunt, bower, gulp.js et Yeoman. Il participe aussi à l’écriture du CLI Codenvy pour pouvoir gérer ses projets, démarrer ou lancer la construction des applications en ligne de commande. Florent est également membre de plusieurs spécifications Java EE (Java EE 7, EJB 3.2, JPA 2.1, JAX-RS 2.0).
+
+=== Jonathan Goldsmith
+
+=== Laurent Huet
+
+=== Mathieu Ancelin
+
+Mathieu ANCELIN est développeur à SERLI, spécialisé dans la programmation web et les frameworks web modernes avec un bon background autour des technologies Java EE. Mathieu est impliqué dans plusieurs projets open-source comme GlassFish et Weld, et en lead également quelques un comme ReactiveCouchbase et Weld-OSGi; Il est membre de l'expert group de la JSR-346 (CDI 1.1), membre de l'OSGi EEG et fait partie de l'équipe du Poitou-Charentes JUG.
+
+=== Nicolas De Loof
+
+=== Pauline Iogna
+
+Pauline est une développeuse passionnée, membre des Duchess France. Après un master, elle a commencé à travailler en tant qu'ingénieur d'études et développement dans une startup à Paris. Elle est aussi enseignante à l'université Paris Est Marne la Vallée, ainsi elle peut combiner les deux avantages d'avoir de nouveaux challenges en tant qu'ingénieur et partager sa passion avec ses étudiants en tant qu'enseignante.
+
+Ses centres d’intérêt sont le langages java, les tests unitaires, mongodb et plus généralement les projets backend.
+
+=== Philippe Charrière
+
+'ai déjà bien dépassé la 40aine, et pourtant je continuer encore à "geeker" au travail comme à la maison sur divers sujets tous liés au développement. Je suis "enterprise advocate" chez SQLi-Lyon et responsable technique "front-end" (une addiction sévère pour tout ce qui touche à javascript et aux single page applications).
+
+=== Pierre-Jean Vardanéga
+
+Je suis développeur Java et agiliste depuis quelques années chez Xebia. J'adore développer des produits multi-clients web et mobile se basant sur des API REST, le tout testé et déployé automatiquement.
+
+=== Sébastien Prunier
+
+Je suis Développeur chez SERLI, spécialisé dans les technologies Java, Cloud et NoSQL (MongoDB, Couchbase). Je m'intéresse plus récemment au langage Javascript, côté client (Angular.js) et côté serveur (Node.js) . Vous pouvez me croiser dans différentes conférences : JUGs, Devoxx France, JugSummerCamp, BreizhCamp, Google Dev Fest...
+
+=== Stéphane Épardaud
+
+Depuis les hautes montagnes de Nice, Stéphane travaille pour Red Hat sur le project Ceylon.
+
+Hacker passionné de Java, C, Perl ou Scheme, versé dans les standards web et des bases de données, il a travaillé sur divers projets tel qu'un éditeur XML WYSIWYG, une libraire de multi-threading en C, un language pour agents mobiles en Scheme (compilateur et machines virtuelles), ainsi que des services web 2.0 RESTful et des interfaces web riches en HTML 5 / Javascript.
+
+Avide de partage de connaissance, il va souvent parler dans des conférences tels que Scheme Workshop 2004, l´Université de Nice en 2008-2009, de nombreux Java User Groups, dont le Riviera Java User Group qu'il a crée avec Nicolas Leroux. Acteur passionné de l´open source depuis le début, il contribute au projet RESTEasy et crée les projets jax-doclets, stamps.js, quelques modules de Play! Framework et travaille sur les projets Ceylon pour Red Hat.
+
+=== Tugdual Grall
+
+Breton et Fier de l'être ! Technical Evangelist at MongoDB, NantesJUG Leader et Développeur de Resultri.com
+
+=== Yan Bonnel
+
+Développeur passionné, je fais du Java la journée, du développement Android la nuit et du développement open-source entre les deux.
+
+Je reste fan du Java en tant que langage, mais surtout de la communauté qui l'entoure. C'est donc tout naturellement que je participe activement aux JUGs des villes dans lesquelles je passe (BreizhJUG, NormandyJUG et maintenant PoitouCharentesJUG).
