@@ -348,7 +348,7 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 <section class="slide" id="_asciidoctor_et_ant_unofficial">
 <h2>Asciidoctor et Ant (unofficial)</h2>
 <div class="listingblock">
-<div class="title">Besoin de "jouer" avec le classloader de <code>Ant</code></div>
+<div class="title"><a class="bare" href="https://github.com/binout/asciidoctor-ant">https://github.com/binout/asciidoctor-ant</a></div>
 <div class="content">
 <pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;target</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">doc</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;taskdef</span> <span class="attribute-name">resource</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">net/jtools/classloadertask/antlib.xml</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/ant-classloadertask.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -401,21 +401,73 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_et_bien_plus_encore">
-<h2>Et bien plus encore &#8230;&#8203;</h2>
-<div class="paragraph"><p>Il est possible de coder des extensions pour <code>asciidoctor</code> (comme l&#8217;excellent <code>asciidoctor-diagram</code>).</p></div>
-<div class="imageblock">
+<section class="slide canvas-image" id="_et_bien_plus_encore" style="background-image: url(images/puzzle.jpg)">
+<div class="paragraph canvas-caption"><p>Et bien plus encore &#8230;&#8203; <em>mais en ruby</em></p></div>
+</section>
+<section class="slide" id="__code_asciidoctor_diagram_code">
+<h2><code>asciidoctor-diagram</code></h2>
+<div class="paragraph slide"><p><span class="image"><img alt="asciiart" src="images/asciiart.png" /></span></p></div>
+<div class="imageblock slide">
 <div class="content">
 <img alt="Diagram" src="images/diag-151ab01a52c063d01f17664cbeab1f92.png" />
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li class="slide">PlantUML</li>
+<li class="slide">Ditaa</li>
+<li class="slide">GraphViz DOT, &#8230;&#8203;</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_et_en_java_1">
+<h2>Et en java ? (1)</h2>
 <div class="paragraph"><p>Depuis <code>asciidoctorj:1.5.0</code>, on peut :</p></div>
 <div class="ulist">
 <ul>
 <li>charger des extensions écrites en ruby (gems)</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">gem-maven-plugin et asciidoctor-maven-plugin</div>
+<div class="content">
+<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
+    ...
+    <span class="tag">&lt;configuration&gt;</span>
+        <span class="tag">&lt;gemPath&gt;</span>${project.build.directory}/gems-provided<span class="tag">&lt;/gemPath&gt;</span>
+        <span class="tag">&lt;requires&gt;</span>
+            <span class="tag">&lt;require&gt;</span>tilt<span class="tag">&lt;/require&gt;</span>
+            <span class="tag">&lt;require&gt;</span>haml<span class="tag">&lt;/require&gt;</span>
+            <span class="tag">&lt;require&gt;</span>asciidoctor-diagram<span class="tag">&lt;/require&gt;</span>
+        <span class="tag">&lt;/requires&gt;</span>
+    <span class="tag">&lt;/configuration&gt;</span>
+    ...
+<span class="tag">&lt;/plugin&gt;</span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_et_en_java_2">
+<h2>Et en java ? (2)</h2>
+<div class="paragraph"><p>Depuis <code>asciidoctorj:1.5.0</code>, on peut aussi :</p></div>
+<div class="ulist">
+<ul>
 <li>écrire des extensions en Java, Groovy, Scala, &#8230;&#8203;</li>
 </ul>
 </div>
+<div class="paragraph"><p><a class="bare" href="http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html">http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html</a></p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="asciidoc language-asciidoc">twitter:binout[]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="html language-html"><span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.twitter.com/binout</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>@binout<span class="tag">&lt;/a&gt;</span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide canvas-image" id="_merci" style="background-image: url(images/blank-page.jpg)">
+<div class="paragraph canvas-caption"><p>A vos claviers, à vos plumes !</p></div>
 </section>
 <div aria-role="navigation">
 <a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
