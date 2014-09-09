@@ -193,7 +193,7 @@ asciidoctor {
 ----
 == Asciidoctor et Ant (unofficial)
 
-.Besoin de "jouer" avec le classloader de `Ant`
+.https://github.com/binout/asciidoctor-ant
 [source,xml]
 ----
 <target name="doc">
@@ -244,10 +244,17 @@ asciidoctor {
  */
 ----
 
+[canvas-image="images/puzzle.jpg"]
 == Et bien plus encore ...
+[role="canvas-caption"]
+Et bien plus encore ... _mais en ruby_
 
-Il est possible de coder des extensions pour `asciidoctor` (comme l'excellent `asciidoctor-diagram`).
+== `asciidoctor-diagram`
 
+[options="step"]
+image:asciiart.png[]
+
+[options="step"]
 [ditaa]
 ----
    +-----------+   asciidoctor - diagram   +------------------+
@@ -256,7 +263,53 @@ Il est possible de coder des extensions pour `asciidoctor` (comme l'excellent `a
    +-----------+
 ----
 
+[options="step"]
+* PlantUML
+* Ditaa
+* GraphViz DOT, ...
+
+
+== Et en java ? (1)
+
 Depuis `asciidoctorj:1.5.0`, on peut :
 
 * charger des extensions écrites en ruby (gems)
+
+[source,xml]
+.gem-maven-plugin et asciidoctor-maven-plugin
+----
+<plugin>
+    ...
+    <configuration>
+        <gemPath>${project.build.directory}/gems-provided</gemPath>
+        <requires>
+            <require>tilt</require>
+            <require>haml</require>
+            <require>asciidoctor-diagram</require>
+        </requires>
+    </configuration>
+    ...
+</plugin>
+----
+
+== Et en java ? (2)
+
+Depuis `asciidoctorj:1.5.0`, on peut aussi :
+
 * écrire des extensions en Java, Groovy, Scala, ...
+
+http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html
+
+[source, asciidoc]
+----
+twitter:binout[]
+----
+[source, html]
+----
+<a href="http://www.twitter.com/binout">@binout</a>
+----
+
+[canvas-image="images/blank-page.jpg"]
+== Merci
+[role="canvas-caption"]
+A vos claviers, à vos plumes !
