@@ -1,0 +1,24 @@
+- Je bouge beaucoup,
+- Yeux vides,
+- Pas de ptttts, tics
+- Pas de je sais pas
+- Pas de plus si on ne compare pas
+
+
+- Dan Allen, Alex Soto, logo linux
+
+
+- Exemple asciidoc à travailler
+- Préciser la doc asciidoc
+
+- Taille de la police
+- 20 mins...
+
+
+- Enlever la démo Intellij, demo maven
+- Remplacer les slides maven,graddle
+
+Aller plus loing
+- Javadoc : non ?
+
+Eclaircir Extension Ruby et Java
