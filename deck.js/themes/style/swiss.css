@@ -312,7 +312,7 @@ code {
 }
 
 blockquote {
-  font-size: 2em;
+  font-size: 1em;
   font-style: italic;
   padding: 1em 2em;
   color: #000;
@@ -348,7 +348,8 @@ a:hover, a:focus {
 
 .deck-container {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 1.75em;
+  /*font-size: 1.75em;*/
+  font-size: 2.25em;
   background: #fff;
 }
 .deck-container > .slide {

@@ -137,13 +137,32 @@ table.CodeRay td.code>pre{padding:0}
 <div class="ulist">
 <ul>
 <li>Développeur Java depuis presque 10 ans</li>
+</ul>
+</div>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="lectra" src="images/lectra.gif" />
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>Technical Leader chez Lectra,
+numéro un mondial des solutions dédiées à l&#8217;industrie du textile (machines et logiciels)</li>
+</ul>
+</div>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="bordeauxjug" src="images/bordeauxjug.jpg" />
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li><p>
 Membre du Bordeaux JUG<div class="ulist">
 <ul>
-<li>Une petite pensée pour <code>bdx.io</code> le 17 octobre !</li>
+<li>Conférence <code>bdx.io</code> le 17 octobre !</li>
 </ul>
 </div></p></li>
-<li>Technical Leader chez Lectra, éditeur de logiciels dans le monde de la mode</li>
 </ul>
 </div>
 </section>
@@ -152,11 +171,11 @@ Membre du Bordeaux JUG<div class="ulist">
 </section>
 <section class="slide" id="_une_solution">
 <h2>Une solution</h2>
-<div class="paragraph"><p>Utiliser un langage de <strong>balisage</strong> : markdown, wiki, latex, asciidoc, &#8230;&#8203;</p></div>
+<div class="paragraph"><p>Utiliser un langage de <strong>balisage</strong> : markdown, wiki, LaTeX, asciidoc, &#8230;&#8203;</p></div>
 <div class="paragraph slide"><p>parce que :</p></div>
 <div class="ulist">
 <ul>
-<li class="slide">la forme prend moins d&#8217;importance que le fond</li>
+<li class="slide">on se concentre plus sur le fond que sur la forme</li>
 <li class="slide">c&#8217;est du texte, donc un éditeur classique suffit</li>
 <li class="slide">on peut gérer l&#8217;historique avec un SCM</li>
 <li class="slide">à partir d&#8217;une même source, on peut publier vers plusieurs formats</li>
@@ -174,8 +193,9 @@ Membre du Bordeaux JUG<div class="ulist">
 <div class="ulist">
 <ul>
 <li>Langage créé en 2002</li>
-<li>Syntaxe proche de markdown mais en plus évolué</li>
-<li>Plus polyvalent que wiki, plus simple que Latex</li>
+<li>Syntaxe proche de markdown mais plus évoluée</li>
+<li>Plus polyvalent qu&#8217;un wiki</li>
+<li>Plus simple que LaTeX</li>
 <li>1<sup>ère</sup> implémentation du processeur en Python</li>
 </ul>
 </div>
@@ -195,20 +215,25 @@ Use AsciiDoc for document markup. Really. It&#8217;s actually readable by humans
 <pre class="CodeRay"><code>= Hello, Jug Summer Camp!
 Benoit Prioux &lt;benoit.prioux@gmail.com&gt;
 
-An introduction to http://asciidoc.org[AsciiDoc].
+Introduction à http://asciidoc.org[AsciiDoc].
 
-== First Section
+== Première Section
 
-* item 1
-* item 2
+* foo
+* bar
 
-NOTE: Atom has an Asciidoc package !</code></pre>
+== Deuxième Section
+
+1. item 1
+2. item 2
+
+NOTE: C'est l'heure de la démo !</code></pre>
 </div>
 </div>
 </section>
 <section class="slide" id="_asciidoctor">
 <h2>Asciidoctor</h2>
-<div class="paragraph"><p><span class="image" style="float: right"><img alt="asciidoctor" src="images/asciidoctor.png" /></span></p></div>
+<div class="paragraph"><p><span class="image" style="float: right"><img alt="dan-allen" src="images/dan-allen.png" /></span></p></div>
 <div class="paragraph"><p><a class="bare" href="https://github.com/asciidoctor">https://github.com/asciidoctor</a></p></div>
 <div class="ulist">
 <ul>
@@ -233,48 +258,36 @@ NOTE: Atom has an Asciidoc package !</code></pre>
 <div class="paragraph slide"><p><span class="image"><img alt="jruby" src="images/jruby.png" /></span></p></div>
 <div class="paragraph slide"><p><span class="image"><img alt="asciidoctorj" src="images/asciidoctorj.png" /></span></p></div>
 </section>
-<section class="slide" id="_asciidoctorj_in_action">
-<h2>Asciidoctorj in action</h2>
-<div class="listingblock">
-<div class="title">Maven</div>
+<section class="slide" id="_asciidoctorj_en_action">
+<h2>Asciidoctorj en action !</h2>
+<div class="listingblock slide">
 <div class="content">
-<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
-  <span class="tag">&lt;groupId&gt;</span>org.asciidoctor<span class="tag">&lt;/groupId&gt;</span>
-  <span class="tag">&lt;artifactId&gt;</span>asciidoctorj<span class="tag">&lt;/artifactId&gt;</span>
-  <span class="tag">&lt;version&gt;</span>1.5.0<span class="tag">&lt;/version&gt;</span>
-<span class="tag">&lt;/dependency&gt;</span></code></pre>
+<pre class="CodeRay"><code class="java language-java">Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+
+Options options = options().backend(<span class="string"><span class="delimiter">&quot;</span><span class="content">html5</span><span class="delimiter">&quot;</span></span>).get();
+<span class="predefined-type">String</span> rendered = asciidoctor.convert(<span class="string"><span class="delimiter">&quot;</span><span class="content">*Gras* ou _italique_ ?</span><span class="delimiter">&quot;</span></span>, options);
+
+<span class="predefined-type">System</span>.out.println(rendered);</code></pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="title">Gradle</div>
+<div class="listingblock slide">
+<div class="title">Console</div>
 <div class="content">
-<pre class="CodeRay"><code class="groovy language-groovy">dependencies {
-    compile(<span class="string"><span class="delimiter">'</span><span class="content">org.asciidoctor:asciidoctorj:1.5.0</span><span class="delimiter">'</span></span>) {transitive=<span class="predefined-constant">false</span>}
-}</code></pre>
+<pre class="CodeRay"><code class="html language-html"><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">paragraph</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;p&gt;</span><span class="tag">&lt;strong&gt;</span>Gras<span class="tag">&lt;/strong&gt;</span> ou <span class="tag">&lt;em&gt;</span>italique<span class="tag">&lt;/em&gt;</span> ?<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_asciidoctor_et_maven_1">
-<h2>Asciidoctor et Maven (1)</h2>
+<section class="slide" id="_asciidoctor_et_maven">
+<h2>Asciidoctor et Maven</h2>
 <div class="listingblock">
-<div class="title">Declaration du plugin</div>
+<div class="title">pom.xml</div>
 <div class="content">
 <pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
   <span class="tag">&lt;groupId&gt;</span>org.asciidoctor<span class="tag">&lt;/groupId&gt;</span>
   <span class="tag">&lt;artifactId&gt;</span>asciidoctor-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
   <span class="tag">&lt;version&gt;</span>1.5.0<span class="tag">&lt;/version&gt;</span>
-  ...
-<span class="tag">&lt;/plugin&gt;</span></code></pre>
-</div>
-</div>
-</section>
-<section class="slide" id="_asciidoctor_et_maven_2">
-<h2>Asciidoctor et Maven (2)</h2>
-<div class="listingblock">
-<div class="title">Convertit les fichiers <code>src/main/asciidoc</code> en html dans <code>target/generated-docs</code></div>
-<div class="content">
-<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
-  ...
   <span class="tag">&lt;executions&gt;</span>
     <span class="tag">&lt;execution&gt;</span>
       <span class="tag">&lt;id&gt;</span>output-html<span class="tag">&lt;/id&gt;</span>
@@ -288,34 +301,14 @@ NOTE: Atom has an Asciidoc package !</code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_asciidoctor_et_maven_3">
-<h2>Asciidoctor et Maven (3)</h2>
-<div class="listingblock">
-<div class="title">S&#8217;intègre à la génération de site Maven (<code>src/site/asciidoc</code>)</div>
-<div class="content">
-<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
-    <span class="tag">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/groupId&gt;</span>
-    <span class="tag">&lt;artifactId&gt;</span>maven-site-plugin<span class="tag">&lt;/artifactId&gt;</span>
-    <span class="tag">&lt;version&gt;</span>3.2<span class="tag">&lt;/version&gt;</span>
-    <span class="tag">&lt;dependencies&gt;</span>
-        <span class="tag">&lt;dependency&gt;</span>
-            <span class="tag">&lt;groupId&gt;</span>org.asciidoctor<span class="tag">&lt;/groupId&gt;</span>
-            <span class="tag">&lt;artifactId&gt;</span>asciidoctor-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
-            <span class="tag">&lt;version&gt;</span>1.5.0<span class="tag">&lt;/version&gt;</span>
-        <span class="tag">&lt;/dependency&gt;</span>
-    <span class="tag">&lt;/dependencies&gt;</span>
-<span class="tag">&lt;/plugin&gt;</span></code></pre>
-</div>
-</div>
-</section>
-<section class="slide" id="_asciidoctor_et_gradle_1">
-<h2>Asciidoctor et Gradle (1)</h2>
+<section class="slide" id="_asciidoctor_et_gradle">
+<h2>Asciidoctor et Gradle</h2>
 <div class="listingblock">
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="CodeRay"><code class="groovy language-groovy">buildscript {
     repositories {
-        jcenter()
+      jcenter()
     }
 
     dependencies {
@@ -327,30 +320,13 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_asciidoctor_et_gradle_2">
-<h2>Asciidoctor et Gradle (2)</h2>
-<div class="listingblock">
-<div class="title">Convertit les fichiers <code>src/asciidoc</code> en html dans <code>build/docs</code></div>
-<div class="content">
-<pre class="CodeRay"><code class="groovy language-groovy">asciidoctor {
-    outputDir = <span class="keyword">new</span> <span class="predefined-type">File</span>(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">$</span>buildDir</span><span class="content">/docs</span><span class="delimiter">&quot;</span></span>)
-    options = [
-        <span class="key">doctype</span>: <span class="string"><span class="delimiter">'</span><span class="content">book</span><span class="delimiter">'</span></span>,
-        <span class="key">attributes</span>: [
-            <span class="string"><span class="delimiter">'</span><span class="content">source-highlighter</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">coderay</span><span class="delimiter">'</span></span>,
-            toc                 : <span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>
-        ]
-    ]
-}</code></pre>
-</div>
-</div>
-</section>
 <section class="slide" id="_asciidoctor_et_ant_unofficial">
 <h2>Asciidoctor et Ant (unofficial)</h2>
 <div class="listingblock">
 <div class="title"><a class="bare" href="https://github.com/binout/asciidoctor-ant">https://github.com/binout/asciidoctor-ant</a></div>
 <div class="content">
 <pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;target</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">doc</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="comment">&lt;!-- on force le chargement de Asciidoctor par Ant --&gt;</span>
   <span class="tag">&lt;taskdef</span> <span class="attribute-name">resource</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">net/jtools/classloadertask/antlib.xml</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/ant-classloadertask.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;classloader</span> <span class="attribute-name">loader</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">thread</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/asciidoctor-ant.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
 
@@ -360,114 +336,67 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_asciidoctor_et_javadoc_1">
-<h2>Asciidoctor et Javadoc (1)</h2>
-<div class="listingblock">
-<div class="title">Javadoc traditionnelle</div>
-<div class="content">
-<pre class="CodeRay"><code>/**
- * &lt;h1&gt;Asciidoclet&lt;/h1&gt;
- * &lt;p&gt;Sample comments that include {@code source code}.&lt;/p&gt;
- *
- * &lt;pre&gt;{@code
- *     {@literal @}SuppressWarnings("UnusedDeclaration")
- *     public static void main(String... args) {
- *         System.out.println("Hello World");
- *     }
- * }&lt;/pre&gt;
- */</code></pre>
-</div>
-</div>
-</section>
-<section class="slide" id="_asciidoctor_et_javadoc_2">
-<h2>Asciidoctor et Javadoc (2)</h2>
-<div class="listingblock">
-<div class="title">Javadoc avec Asciidoclet</div>
-<div class="content">
-<pre class="CodeRay"><code>/**
- * = Asciidoclet
- *
- * Sample comments that include `source code`.
- *
- * [source,java]
- * --
- *    @SuppressWarnings("UnusedDeclaration")
- *    public static void main(String... args) {
- *        System.out.println("Hello World");
- *    }
- * --
- *
- */</code></pre>
-</div>
-</div>
-</section>
 <section class="slide canvas-image" id="_et_bien_plus_encore" style="background-image: url(images/puzzle.jpg)">
-<div class="paragraph canvas-caption"><p>Et bien plus encore &#8230;&#8203; <em>mais en ruby</em></p></div>
+<div class="paragraph canvas-caption"><p>Asciidoctor est extensible &#8230;&#8203;</p></div>
 </section>
-<section class="slide" id="__code_asciidoctor_diagram_code">
-<h2><code>asciidoctor-diagram</code></h2>
+<section class="slide" id="_asciidoctor_diagram">
+<h2>asciidoctor-diagram</h2>
 <div class="paragraph slide"><p><span class="image"><img alt="asciiart" src="images/asciiart.png" /></span></p></div>
 <div class="imageblock slide">
 <div class="content">
-<img alt="Diagram" src="images/diag-151ab01a52c063d01f17664cbeab1f92.png" />
+<img alt="Diagram" src="images/diag-8ca7aac502681b731543ec2ec69016ed.png" />
 </div>
-</div>
-<div class="ulist">
-<ul>
-<li class="slide">PlantUML</li>
-<li class="slide">Ditaa</li>
-<li class="slide">GraphViz DOT, &#8230;&#8203;</li>
-</ul>
 </div>
 </section>
-<section class="slide" id="_et_en_java_1">
-<h2>Et en java ? (1)</h2>
-<div class="paragraph"><p>Depuis <code>asciidoctorj:1.5.0</code>, on peut :</p></div>
-<div class="ulist">
-<ul>
-<li>charger des extensions écrites en ruby (gems)</li>
-</ul>
+<section class="slide" id="_utiliser_les_extensions_code_ruby_code_en_code_java_code_maven">
+<h2>Utiliser les extensions <code>ruby</code> en <code>java</code> (maven)</h2>
+<div class="listingblock slide">
+<div class="title">gem asciidoctor-diagram</div>
+<div class="content">
+<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>rubygems<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>asciidoctor-diagram<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>1.2.0<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;type&gt;</span>gem<span class="tag">&lt;/type&gt;</span>
+    <span class="tag">&lt;scope&gt;</span>provided<span class="tag">&lt;/scope&gt;</span>
+<span class="tag">&lt;dependency&gt;</span></code></pre>
 </div>
-<div class="listingblock">
-<div class="title">gem-maven-plugin et asciidoctor-maven-plugin</div>
+</div>
+<div class="listingblock slide">
+<div class="title">asciidoctor-maven-plugin</div>
 <div class="content">
 <pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
     ...
-    <span class="tag">&lt;configuration&gt;</span>
-        <span class="tag">&lt;gemPath&gt;</span>${project.build.directory}/gems-provided<span class="tag">&lt;/gemPath&gt;</span>
-        <span class="tag">&lt;requires&gt;</span>
-            <span class="tag">&lt;require&gt;</span>tilt<span class="tag">&lt;/require&gt;</span>
-            <span class="tag">&lt;require&gt;</span>haml<span class="tag">&lt;/require&gt;</span>
-            <span class="tag">&lt;require&gt;</span>asciidoctor-diagram<span class="tag">&lt;/require&gt;</span>
-        <span class="tag">&lt;/requires&gt;</span>
-    <span class="tag">&lt;/configuration&gt;</span>
+  <span class="tag">&lt;configuration&gt;</span>
+      <span class="tag">&lt;gemPath&gt;</span>${project.build.directory}/gems-provided<span class="tag">&lt;/gemPath&gt;</span>
+      <span class="tag">&lt;requires&gt;</span>
+          <span class="tag">&lt;require&gt;</span>asciidoctor-diagram<span class="tag">&lt;/require&gt;</span>
+      <span class="tag">&lt;/requires&gt;</span>
+  <span class="tag">&lt;/configuration&gt;</span>
     ...
 <span class="tag">&lt;/plugin&gt;</span></code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_et_en_java_2">
-<h2>Et en java ? (2)</h2>
-<div class="paragraph"><p>Depuis <code>asciidoctorj:1.5.0</code>, on peut aussi :</p></div>
-<div class="ulist">
-<ul>
-<li>écrire des extensions en Java, Groovy, Scala, &#8230;&#8203;</li>
-</ul>
-</div>
-<div class="paragraph"><p><a class="bare" href="http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html">http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html</a></p></div>
-<div class="listingblock">
+<section class="slide" id="_et_si_je_veux_faire_une_extension_je_dois_coder_en_code_ruby_code">
+<h2>Et si je veux faire une extension, je dois coder en <code>ruby</code> ?</h2>
+<div class="paragraph slide"><p><strong>Nouveau</strong> : on peut coder des extensions directement en Java, Groovy, Scala</p></div>
+<div class="paragraph slide"><p><a class="bare" href="http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html">http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html</a></p></div>
+<div class="listingblock slide">
 <div class="content">
 <pre class="CodeRay"><code class="asciidoc language-asciidoc">twitter:binout[]</code></pre>
 </div>
 </div>
-<div class="listingblock">
+<div class="paragraph slide"><p>devient :</p></div>
+<div class="listingblock slide">
 <div class="content">
 <pre class="CodeRay"><code class="html language-html"><span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.twitter.com/binout</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>@binout<span class="tag">&lt;/a&gt;</span></code></pre>
 </div>
 </div>
 </section>
 <section class="slide canvas-image" id="_merci" style="background-image: url(images/blank-page.jpg)">
-<div class="paragraph canvas-caption"><p>A vos claviers, à vos plumes !</p></div>
+<div class="paragraph canvas-caption"><p><a class="bare" href="http://asciidoctor.org/">http://asciidoctor.org/</a><br />
+@asciidoctor</p></div>
 </section>
 <div aria-role="navigation">
 <a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
