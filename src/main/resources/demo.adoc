@@ -1,0 +1,44 @@
+= Hello, Jug Summer Camp!
+Benoit Prioux <benoit.prioux@gmail.com>
+
+Introduction à http://asciidoc.org[AsciiDoc].
+
+== Première Section
+
+* foo
+* bar
+** baz
+
+== Deuxième Section
+
+1. item 1
+2. item 2
+
+.. item 21
+... item 211
+
+NOTE: C'est l'heure de la démo !
+
+On peut écrire en *gras*, en _italique_
+
+On peut faire des tableaux
+[options="header"]
+.Exemple
+|===
+| Fruit | Legume
+| Pomme | Patate
+|===
+
+On peut insérer du code :
+
+.Exemple
+[source, java]
+----
+public class Panier {
+  private List<Fruit> fruits;
+
+  public Panier(int taille) {
+  ....
+  }
+}
+----

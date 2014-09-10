@@ -17,16 +17,31 @@ package net.binout.asciidoc;
 
 import org.asciidoctor.*;
 
-import static org.asciidoctor.OptionsBuilder.options;
+import java.io.File;
 
-public class AsciidocConvert {
+public class AsciidocConvertFile {
 
     public static void main(String[] args) {
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 
-        Options options = options().backend("docbook").get();
-        String rendered = asciidoctor.convert("*Gras* ou _italique_ ?", options);
+        // Set attributes as backend
+        Attributes attributes = AttributesBuilder.attributes()
+                .backend("html5")
+                .get();
 
-        System.out.println(rendered);
+        // Set options as destDir
+        Options options = OptionsBuilder.options()
+                .attributes(attributes)
+                .toDir(new File("target/generated-docs"))
+                .mkDirs(true)
+                .safe(SafeMode.SAFE)
+                .get();
+
+        // Convert adoc to html
+        asciidoctor.convertFile(getJugSummerCampDoc(), options);
+    }
+
+    private static File getJugSummerCampDoc() {
+        return new File(Thread.currentThread().getContextClassLoader().getResource("jugsummercamp.adoc").getFile());
     }
 }

@@ -10,9 +10,16 @@ icon:twitter[] @binout +
 icon:github[] https://github.com/binout
 
 * Développeur Java depuis presque 10 ans
+
+image::lectra.gif[float="right"]
+
+* Technical Leader chez Lectra,
+numéro un mondial des solutions dédiées à l'industrie du textile (machines et logiciels)
+
+image::bordeauxjug.jpg[float="right"]
+
 * Membre du Bordeaux JUG
-** Une petite pensée pour `bdx.io` le 17 octobre !
-* Technical Leader chez Lectra, éditeur de logiciels dans le monde de la mode
+** Conférence `bdx.io` le 17 octobre !
 
 [canvas-image="images/commit-strip.png"]
 == Ecrire une doc ...
@@ -21,11 +28,11 @@ Ecrire une doc ...
 
 == Une solution
 
-Utiliser un langage de *balisage* : markdown, wiki, latex, asciidoc, ...
+Utiliser un langage de *balisage* : markdown, wiki, LaTeX, asciidoc, ...
 [options="step"]
 parce que :
 [options="step"]
-* la forme prend moins d'importance que le fond
+* on se concentre plus sur le fond que sur la forme
 * c'est du texte, donc un éditeur classique suffit
 * on peut gérer l'historique avec un SCM
 * à partir d'une même source, on peut publier vers plusieurs formats
@@ -36,8 +43,9 @@ parce que :
 image::asciidoc.png[float="right"]
 
 * Langage créé en 2002
-* Syntaxe proche de markdown mais en plus évolué
-* Plus polyvalent que wiki, plus simple que Latex
+* Syntaxe proche de markdown mais plus évoluée
+* Plus polyvalent qu'un wiki
+* Plus simple que LaTeX
 * 1^ère^ implémentation du processeur en Python
 
 [quote, Linus Torvalds]
@@ -50,19 +58,24 @@ Use AsciiDoc for document markup. Really. It's actually readable by humans, easi
 = Hello, Jug Summer Camp!
 Benoit Prioux <benoit.prioux@gmail.com>
 
-An introduction to http://asciidoc.org[AsciiDoc].
+Introduction à http://asciidoc.org[AsciiDoc].
 
-== First Section
+== Première Section
 
-* item 1
-* item 2
+* foo
+* bar
 
-NOTE: Atom has an Asciidoc package !
+== Deuxième Section
+
+1. item 1
+2. item 2
+
+NOTE: C'est l'heure de la démo !
 ----
 
 == Asciidoctor
 
-image:asciidoctor.png[float="right"]
+image:dan-allen.png[float="right"]
 
 https://github.com/asciidoctor
 
@@ -86,45 +99,38 @@ image:jruby.png[]
 [options="step"]
 image:asciidoctorj.png[]
 
-== Asciidoctorj in action
+== Asciidoctorj en action !
 
-.Maven
-[source,xml]
+[options="step"]
+[source,java]
 ----
-<dependency>
-  <groupId>org.asciidoctor</groupId>
-  <artifactId>asciidoctorj</artifactId>
-  <version>1.5.0</version>
-</dependency>
-----
-.Gradle
-[source,groovy]
-----
-dependencies {
-    compile('org.asciidoctor:asciidoctorj:1.5.0') {transitive=false}
-}
+Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+
+Options options = options().backend("html5").get();
+String rendered = asciidoctor.convert("*Gras* ou _italique_ ?", options);
+
+System.out.println(rendered);
 ----
 
-== Asciidoctor et Maven (1)
+[options="step"]
+.Console
+[source,html]
+----
+<div class="paragraph">
+<p><strong>Gras</strong> ou <em>italique</em> ?</p>
+</div>
+----
 
-.Declaration du plugin
+
+== Asciidoctor et Maven
+
+.pom.xml
 [source,xml]
 ----
 <plugin>
   <groupId>org.asciidoctor</groupId>
   <artifactId>asciidoctor-maven-plugin</artifactId>
   <version>1.5.0</version>
-  ...
-</plugin>
-----
-
-== Asciidoctor et Maven (2)
-
-.Convertit les fichiers `src/main/asciidoc` en html dans `target/generated-docs`
-[source,xml]
-----
-<plugin>
-  ...
   <executions>
     <execution>
       <id>output-html</id>
@@ -137,26 +143,7 @@ dependencies {
 </plugin>
 ----
 
-== Asciidoctor et Maven (3)
-
-.S'intègre à la génération de site Maven (`src/site/asciidoc`)
-[source,xml]
-----
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-site-plugin</artifactId>
-    <version>3.2</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.asciidoctor</groupId>
-            <artifactId>asciidoctor-maven-plugin</artifactId>
-            <version>1.5.0</version>
-        </dependency>
-    </dependencies>
-</plugin>
-----
-
-== Asciidoctor et Gradle (1)
+== Asciidoctor et Gradle
 
 .build.gradle
 [source,groovy]
@@ -164,7 +151,7 @@ dependencies {
 ----
 buildscript {
     repositories {
-        jcenter()
+      jcenter()
     }
 
     dependencies {
@@ -175,28 +162,13 @@ buildscript {
 apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 ----
 
-== Asciidoctor et Gradle (2)
-
-.Convertit les fichiers `src/asciidoc` en html dans `build/docs`
-[source,groovy]
-----
-asciidoctor {
-    outputDir = new File("$buildDir/docs")
-    options = [
-        doctype: 'book',
-        attributes: [
-            'source-highlighter': 'coderay',
-            toc                 : ''
-        ]
-    ]
-}
-----
 == Asciidoctor et Ant (unofficial)
 
 .https://github.com/binout/asciidoctor-ant
 [source,xml]
 ----
 <target name="doc">
+  <!-- on force le chargement de Asciidoctor par Ant -->
   <taskdef resource="net/jtools/classloadertask/antlib.xml" classpath="lib/ant-classloadertask.jar"/>
   <classloader loader="thread" classpath="lib/asciidoctor-ant.jar"/>
 
@@ -205,51 +177,12 @@ asciidoctor {
 </target>
 ----
 
-== Asciidoctor et Javadoc (1)
-
-[source]
-.Javadoc traditionnelle
-----
-/**
- * <h1>Asciidoclet</h1>
- * <p>Sample comments that include {@code source code}.</p>
- *
- * <pre>{@code
- *     {@literal @}SuppressWarnings("UnusedDeclaration")
- *     public static void main(String... args) {
- *         System.out.println("Hello World");
- *     }
- * }</pre>
- */
-----
-
-== Asciidoctor et Javadoc (2)
-
-[source]
-.Javadoc avec Asciidoclet
-----
-/**
- * = Asciidoclet
- *
- * Sample comments that include `source code`.
- *
- * [source,java]
- * --
- *    @SuppressWarnings("UnusedDeclaration")
- *    public static void main(String... args) {
- *        System.out.println("Hello World");
- *    }
- * --
- *
- */
-----
-
 [canvas-image="images/puzzle.jpg"]
 == Et bien plus encore ...
 [role="canvas-caption"]
-Et bien plus encore ... _mais en ruby_
+Asciidoctor est extensible ...
 
-== `asciidoctor-diagram`
+== asciidoctor-diagram
 
 [options="step"]
 image:asciiart.png[]
@@ -257,53 +190,72 @@ image:asciiart.png[]
 [options="step"]
 [ditaa]
 ----
-   +-----------+   asciidoctor - diagram   +------------------+
-   | Ascii art |-------------------------->|  Diagram in PNG  |
-   |  (ditaa)  |                           +------------------+
-   +-----------+
+                   +-------------+
+                   | Asciidoctor |-------+
+                   |  Diagram    |       |
+                   +-------------+       | PNG out
+                       ^                 |
+                       | ditaa in        |
+                       |                 v
+ +--------+   +--------+----+    /----------------\
+ |        | --+ Asciidoctor +--> |                |
+ |  Text  |   +-------------+    |Beautiful output|
+ |Document|   |   !magic!   |    |                |
+ |     {d}|   |             |    |                |
+ +---+----+   +-------------+    \----------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
 ----
 
+== Utiliser les extensions `ruby` en `java` (maven)
+
 [options="step"]
-* PlantUML
-* Ditaa
-* GraphViz DOT, ...
-
-
-== Et en java ? (1)
-
-Depuis `asciidoctorj:1.5.0`, on peut :
-
-* charger des extensions écrites en ruby (gems)
-
 [source,xml]
-.gem-maven-plugin et asciidoctor-maven-plugin
+.gem asciidoctor-diagram
+----
+<dependency>
+    <groupId>rubygems</groupId>
+    <artifactId>asciidoctor-diagram</artifactId>
+    <version>1.2.0</version>
+    <type>gem</type>
+    <scope>provided</scope>
+<dependency>
+----
+[options="step"]
+[source,xml]
+.asciidoctor-maven-plugin
 ----
 <plugin>
     ...
-    <configuration>
-        <gemPath>${project.build.directory}/gems-provided</gemPath>
-        <requires>
-            <require>tilt</require>
-            <require>haml</require>
-            <require>asciidoctor-diagram</require>
-        </requires>
-    </configuration>
+  <configuration>
+      <gemPath>${project.build.directory}/gems-provided</gemPath>
+      <requires>
+          <require>asciidoctor-diagram</require>
+      </requires>
+  </configuration>
     ...
 </plugin>
 ----
 
-== Et en java ? (2)
+== Et si je veux faire une extension, je dois coder en `ruby` ?
 
-Depuis `asciidoctorj:1.5.0`, on peut aussi :
+[options="step"]
+*Nouveau* : on peut coder des extensions directement en Java, Groovy, Scala
 
-* écrire des extensions en Java, Groovy, Scala, ...
-
+[options="step"]
 http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html
 
+[options="step"]
 [source, asciidoc]
 ----
 twitter:binout[]
 ----
+
+[options="step"]
+devient :
+
+[options="step"]
 [source, html]
 ----
 <a href="http://www.twitter.com/binout">@binout</a>
@@ -312,4 +264,5 @@ twitter:binout[]
 [canvas-image="images/blank-page.jpg"]
 == Merci
 [role="canvas-caption"]
-A vos claviers, à vos plumes !
+http://asciidoctor.org/ +
+@asciidoctor
