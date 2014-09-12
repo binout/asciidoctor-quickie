@@ -1,0 +1,32 @@
+= asciidoctor-quickie
+:compat-mode:
+
+Material for quickie talk about Asciidoctor
+
+== Pre-requesites
+
+* Maven 3
+* JDK 8
+
+== Slide generation
+
+I'm using +deckjs+ as +asciidoctor+ backend.
+
+You can find more information on asciidoctor site :
+
+* http://asciidoctor.org/docs/install-and-use-deckjs-backend/
+
+=== Only HTML
+[source]
+----
+mvn package -Pslide
+----
+The presentation is in +target/generated-slides+.
+
+=== HTML + PDF
+I'm using https://github.com/melix/deck2pdf[deck2pdf].
+[source]
+----
+./generate-slides.sh
+----
+The PDF is also in +target/generated-slides+.
