@@ -166,8 +166,8 @@ Membre du Bordeaux JUG<div class="ulist">
 </ul>
 </div>
 </section>
-<section class="slide canvas-image" id="_ecrire_une_doc" style="background-image: url(images/commit-strip.png)">
-<div class="paragraph canvas-caption"><p>Ecrire une doc &#8230;&#8203;</p></div>
+<section class="slide canvas-image" id="_ecrire_une_doc" style="background-image: url(images/monkey.jpg)">
+<div class="paragraph canvas-caption"><p>Vous n&#8217;aimez pas écrire de la doc ?</p></div>
 </section>
 <section class="slide" id="_une_solution">
 <h2>Une solution</h2>
@@ -344,13 +344,33 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 <div class="paragraph slide"><p><span class="image"><img alt="asciiart" src="images/asciiart.png" /></span></p></div>
 <div class="imageblock slide">
 <div class="content">
-<img alt="Diagram" src="images/diag-8ca7aac502681b731543ec2ec69016ed.png" />
+<img alt="Diagram" src="images/diag-8e116fdfbfab355989d5357acd128d52.png" />
 </div>
 </div>
 </section>
-<section class="slide" id="_utiliser_les_extensions_code_ruby_code_en_code_java_code_maven">
-<h2>Utiliser les extensions <code>ruby</code> en <code>java</code> (maven)</h2>
-<div class="listingblock slide">
+<section class="slide" id="_asciidoctor_diagram_et_uml">
+<h2>asciidoctor-diagram et UML</h2>
+<div class="paragraph slide"><p><span class="image" style="float: left"><img alt="class-diagram" src="images/class-diagram.png" /></span></p></div>
+<div class="imageblock slide">
+<div class="content">
+<img alt="Diagram" src="images/diag-eee600d830479506282a6d91c78aa81e.png" />
+</div>
+</div>
+<div class="paragraph slide"><p><span class="image" style="float: left"><img alt="sequence-diagram" src="images/sequence-diagram.png" /></span></p></div>
+<div class="imageblock slide">
+<div class="content">
+<img alt="Diagram" src="images/diag-cfba8c9efae87c338011b513b1607b2b.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_extensions_code_ruby_code_en_code_java_code">
+<h2>Extensions <code>ruby</code> en <code>java</code></h2>
+<div class="ulist">
+<ul>
+<li>TorqueBox RubyGems Maven Proxy Repository</li>
+</ul>
+</div>
+<div class="listingblock">
 <div class="title">gem asciidoctor-diagram</div>
 <div class="content">
 <pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
@@ -362,17 +382,22 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 <span class="tag">&lt;dependency&gt;</span></code></pre>
 </div>
 </div>
-<div class="listingblock slide">
+</section>
+<section class="slide" id="_asciidoctorj_et_extensions_code_ruby_code">
+<h2>AsciidoctorJ et extensions <code>ruby</code></h2>
+<div class="listingblock">
 <div class="title">asciidoctor-maven-plugin</div>
 <div class="content">
 <pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
-    ...
-  <span class="tag">&lt;configuration&gt;</span>
-      <span class="tag">&lt;gemPath&gt;</span>${project.build.directory}/gems-provided<span class="tag">&lt;/gemPath&gt;</span>
-      <span class="tag">&lt;requires&gt;</span>
-          <span class="tag">&lt;require&gt;</span>asciidoctor-diagram<span class="tag">&lt;/require&gt;</span>
-      <span class="tag">&lt;/requires&gt;</span>
-  <span class="tag">&lt;/configuration&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.asciidoctor<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>asciidoctor-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>${asciidoctor.version}<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;configuration&gt;</span>
+        <span class="tag">&lt;gemPath&gt;</span>${project.build.directory}/gems-provided<span class="tag">&lt;/gemPath&gt;</span>
+        <span class="tag">&lt;requires&gt;</span>
+            <span class="tag">&lt;require&gt;</span>asciidoctor-diagram<span class="tag">&lt;/require&gt;</span>
+        <span class="tag">&lt;/requires&gt;</span>
+    <span class="tag">&lt;/configuration&gt;</span>
     ...
 <span class="tag">&lt;/plugin&gt;</span></code></pre>
 </div>
