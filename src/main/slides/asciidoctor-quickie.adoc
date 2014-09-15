@@ -21,10 +21,10 @@ image::bordeauxjug.jpg[float="right"]
 * Membre du Bordeaux JUG
 ** Conférence `bdx.io` le 17 octobre !
 
-[canvas-image="images/commit-strip.png"]
+[canvas-image="images/monkey.jpg"]
 == Ecrire une doc ...
 [role="canvas-caption"]
-Ecrire une doc ...
+Vous n'aimez pas écrire de la doc ?
 
 == Une solution
 
@@ -187,16 +187,8 @@ Asciidoctor est extensible ...
 [options="step"]
 image:asciiart.png[]
 
-[options="step"]
-[ditaa]
+[ditaa, options="step"]
 ----
-                   +-------------+
-                   | Asciidoctor |-------+
-                   |  Diagram    |       |
-                   +-------------+       | PNG out
-                       ^                 |
-                       | ditaa in        |
-                       |                 v
  +--------+   +--------+----+    /----------------\
  |        | --+ Asciidoctor +--> |                |
  |  Text  |   +-------------+    |Beautiful output|
@@ -208,9 +200,36 @@ image:asciiart.png[]
      +-----------------------------------+
 ----
 
-== Utiliser les extensions `ruby` en `java` (maven)
+== asciidoctor-diagram et UML
 
 [options="step"]
+image:class-diagram.png[float="left"]
+
+[plantuml, options="step"]
+----
+Class01 "1" *-- "many" Class02 : contains
+
+Class03 o-- Class04 : agregation
+
+Class05 --> "1" Class06
+----
+
+[options="step"]
+image:sequence-diagram.png[float="left"]
+
+[plantuml, options="step"]
+----
+Client -> Server: Authentication Request
+Server --> Client: Authentication Response
+
+Client -> Server: Another authentication Request
+Client <-- Server: another authentication Response
+----
+
+== Extensions `ruby` en `java`
+
+* TorqueBox RubyGems Maven Proxy Repository
+
 [source,xml]
 .gem asciidoctor-diagram
 ----
@@ -222,18 +241,25 @@ image:asciiart.png[]
     <scope>provided</scope>
 <dependency>
 ----
-[options="step"]
+
+
+
+== AsciidoctorJ et extensions `ruby`
+
+
 [source,xml]
 .asciidoctor-maven-plugin
 ----
 <plugin>
-    ...
-  <configuration>
-      <gemPath>${project.build.directory}/gems-provided</gemPath>
-      <requires>
-          <require>asciidoctor-diagram</require>
-      </requires>
-  </configuration>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId>
+    <version>${asciidoctor.version}</version>
+    <configuration>
+        <gemPath>${project.build.directory}/gems-provided</gemPath>
+        <requires>
+            <require>asciidoctor-diagram</require>
+        </requires>
+    </configuration>
     ...
 </plugin>
 ----
