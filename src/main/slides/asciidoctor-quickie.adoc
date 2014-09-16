@@ -21,7 +21,7 @@ image::bordeauxjug.jpg[float="right"]
 * Membre du Bordeaux JUG
 ** Conférence `bdx.io` le 17 octobre !
 
-[canvas-image="images/monkey.jpg"]
+[canvas-image="images/writing-is-my-hobby.jpg"]
 == Ecrire une doc ...
 [role="canvas-caption"]
 Vous n'aimez pas écrire de la doc ?
@@ -79,7 +79,7 @@ image:dan-allen.png[float="right"]
 
 https://github.com/asciidoctor
 
-* Implémentation open-source écrit en `Ruby`
+* Implémentation open-source écrite en `Ruby`
 * Permet de convertir des fichiers `asciidoc` vers différents backends : `docbook`, `html5`, `epub`, `pdf` (et même `deckjs`)
 * 12 août 2014 : sortie de la version `1.5.0`
 ** 1^ère^ version majeure après 2 ans de développement
@@ -91,7 +91,7 @@ https://github.com/asciidoctor
 [role="canvas-caption"]
 Ils utilisent déjà `asciidoctor`
 
-== Et si je ne connais pas `Ruby`, c'est pas pour moi ?
+== Et si je ne connais pas `Ruby`, ce n'est pas pour moi ?
 
 [options="step"]
 image:jruby.png[]
@@ -168,13 +168,26 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 [source,xml]
 ----
 <target name="doc">
-  <!-- on force le chargement de Asciidoctor par Ant -->
   <taskdef resource="net/jtools/classloadertask/antlib.xml" classpath="lib/ant-classloadertask.jar"/>
   <classloader loader="thread" classpath="lib/asciidoctor-ant.jar"/>
 
   <taskdef name="asciidoctor" classname="org.asciidoctor.ant.AsciidoctorAntTask"/>
   <asciidoctor sourceDirectory="src/asciidoc" outputDirectory="build/docs"/>
 </target>
+----
+
+== Asciidoctor et Javadoc
+
+[source, java]
+.Javadoc avec Asciidoclet
+----
+/**
+ * This class has the following features:
+ *
+ * - Support for *foo*
+ * - Support for bar
+ */
+public class Thing implements Something { ... }
 ----
 
 [canvas-image="images/puzzle.jpg"]
@@ -264,7 +277,7 @@ Client <-- Server: another authentication Response
 </plugin>
 ----
 
-== Et si je veux faire une extension, je dois coder en `ruby` ?
+== Et si je veux faire une extension, dois-je coder en `ruby` ?
 
 [options="step"]
 *Nouveau* : on peut coder des extensions directement en Java, Groovy, Scala
