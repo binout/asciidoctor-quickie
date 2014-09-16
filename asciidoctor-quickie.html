@@ -166,7 +166,7 @@ Membre du Bordeaux JUG<div class="ulist">
 </ul>
 </div>
 </section>
-<section class="slide canvas-image" id="_ecrire_une_doc" style="background-image: url(images/monkey.jpg)">
+<section class="slide canvas-image" id="_ecrire_une_doc" style="background-image: url(images/writing-is-my-hobby.jpg)">
 <div class="paragraph canvas-caption"><p>Vous n&#8217;aimez pas écrire de la doc ?</p></div>
 </section>
 <section class="slide" id="_une_solution">
@@ -237,7 +237,7 @@ NOTE: C'est l'heure de la démo !</code></pre>
 <div class="paragraph"><p><a class="bare" href="https://github.com/asciidoctor">https://github.com/asciidoctor</a></p></div>
 <div class="ulist">
 <ul>
-<li>Implémentation open-source écrit en <code>Ruby</code></li>
+<li>Implémentation open-source écrite en <code>Ruby</code></li>
 <li>Permet de convertir des fichiers <code>asciidoc</code> vers différents backends : <code>docbook</code>, <code>html5</code>, <code>epub</code>, <code>pdf</code> (et même <code>deckjs</code>)</li>
 <li><p>
 12 août 2014 : sortie de la version <code>1.5.0</code><div class="ulist">
@@ -253,8 +253,8 @@ NOTE: C'est l'heure de la démo !</code></pre>
 <section class="slide canvas-image" id="_ils_utilisent_déjà_code_asciidoctor_code" style="background-image: url(images/use-asciidoctor.jpg)">
 <div class="paragraph canvas-caption"><p>Ils utilisent déjà <code>asciidoctor</code></p></div>
 </section>
-<section class="slide" id="_et_si_je_ne_connais_pas_code_ruby_code_c_est_pas_pour_moi">
-<h2>Et si je ne connais pas <code>Ruby</code>, c&#8217;est pas pour moi ?</h2>
+<section class="slide" id="_et_si_je_ne_connais_pas_code_ruby_code_ce_n_est_pas_pour_moi">
+<h2>Et si je ne connais pas <code>Ruby</code>, ce n&#8217;est pas pour moi ?</h2>
 <div class="paragraph slide"><p><span class="image"><img alt="jruby" src="images/jruby.png" /></span></p></div>
 <div class="paragraph slide"><p><span class="image"><img alt="asciidoctorj" src="images/asciidoctorj.png" /></span></p></div>
 </section>
@@ -326,13 +326,27 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 <div class="title"><a class="bare" href="https://github.com/binout/asciidoctor-ant">https://github.com/binout/asciidoctor-ant</a></div>
 <div class="content">
 <pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;target</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">doc</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-  <span class="comment">&lt;!-- on force le chargement de Asciidoctor par Ant --&gt;</span>
   <span class="tag">&lt;taskdef</span> <span class="attribute-name">resource</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">net/jtools/classloadertask/antlib.xml</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/ant-classloadertask.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;classloader</span> <span class="attribute-name">loader</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">thread</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/asciidoctor-ant.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
 
   <span class="tag">&lt;taskdef</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">asciidoctor</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">classname</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.asciidoctor.ant.AsciidoctorAntTask</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
   <span class="tag">&lt;asciidoctor</span> <span class="attribute-name">sourceDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">src/asciidoc</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">outputDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">build/docs</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
 <span class="tag">&lt;/target&gt;</span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_asciidoctor_et_javadoc">
+<h2>Asciidoctor et Javadoc</h2>
+<div class="listingblock">
+<div class="title">Javadoc avec Asciidoclet</div>
+<div class="content">
+<pre class="CodeRay"><code class="java language-java"><span class="comment">/**
+ * This class has the following features:
+ *
+ * - Support for *foo*
+ * - Support for bar
+ */</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">Thing</span> <span class="directive">implements</span> Something { ... }</code></pre>
 </div>
 </div>
 </section>
@@ -403,8 +417,8 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_et_si_je_veux_faire_une_extension_je_dois_coder_en_code_ruby_code">
-<h2>Et si je veux faire une extension, je dois coder en <code>ruby</code> ?</h2>
+<section class="slide" id="_et_si_je_veux_faire_une_extension_dois_je_coder_en_code_ruby_code">
+<h2>Et si je veux faire une extension, dois-je coder en <code>ruby</code> ?</h2>
 <div class="paragraph slide"><p><strong>Nouveau</strong> : on peut coder des extensions directement en Java, Groovy, Scala</p></div>
 <div class="paragraph slide"><p><a class="bare" href="http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html">http://mrhaki.blogspot.fr/2014/08/awesome-asciidoc-write-extensions-using.html</a></p></div>
 <div class="listingblock slide">
