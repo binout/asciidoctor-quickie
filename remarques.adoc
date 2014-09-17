@@ -1,9 +1,10 @@
 = Remarques
 
 * je bouge trop
-* verifier droits des images
-** demander à Dan Allen et Alex Soto
-
-* raccourcir l'intro
-
+* parler moins vite
 * mieux préparer la démo
+* rendu javadoc
+* enlever les animations sur les diagrammes
+* aller vite sur le code asciidoctorj
+
+WARNING: 15 min ... pas de marge
