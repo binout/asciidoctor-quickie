@@ -28,11 +28,12 @@ image::bordeauxjug.jpg[float="right"]
 
 image::asciidoc.png[float="right"]
 
-* Langage créé en 2002
-* 1^ère^ implémentation du processeur en Python
+Langage de _balisage_, créé en 2002, en Python
 
-Les plus :
+[options="step"]
+Parce que :
 
+[options="step"]
 * on se concentre plus sur le fond que sur la forme
 * c'est du texte, donc un éditeur classique suffit
 * on peut gérer l'historique avec un SCM
@@ -68,11 +69,10 @@ image:dan-allen.png[float="right"]
 https://github.com/asciidoctor
 
 * Implémentation open-source écrite en `Ruby`
-* Permet de convertir des fichiers `asciidoc` vers différents backends : `docbook`, `html5`, `epub`, `pdf` (et même `deckjs`)
+* Permet de convertir des fichiers `asciidoc` vers différents backends : `docbook`, `html5`, `epub`, `pdf` et même `deckjs` !
 * 12 août 2014 : sortie de la version `1.5.0`
 ** 1^ère^ version majeure après 2 ans de développement
 ** 50 contributeurs, 1800 commits, 1500 tests
-** introduit des évolutions de la syntaxe `asciidoc`, tout en gardant la compatibilité
 
 [canvas-image="images/use-asciidoctor.jpg"]
 == Ils utilisent déjà `asciidoctor`
@@ -89,7 +89,6 @@ image:asciidoctorj.png[]
 
 == Asciidoctorj en action !
 
-[options="step"]
 [source,java]
 ----
 Asciidoctor asciidoctor = Asciidoctor.Factory.create();
@@ -287,5 +286,5 @@ devient :
 <a href="http://www.twitter.com/binout">@binout</a>
 ----
 
-[canvas-image="images/asciidoctor-user-manual.png"]
+[canvas-image="images/merci.png"]
 == Merci
