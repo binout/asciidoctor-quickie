@@ -166,13 +166,18 @@ Membre du Bordeaux JUG<div class="ulist">
 </ul>
 </div>
 </section>
-<section class="slide canvas-image" id="_ecrire_une_doc" style="background-image: url(images/writing-is-my-hobby.jpg)">
-<div class="paragraph canvas-caption"><p>Vous n&#8217;aimez pas écrire de la doc ?</p></div>
+<section class="slide canvas-image" id="_writing_is_my_hobby" style="background-image: url(images/writing-is-my-hobby.jpg)">
+
 </section>
-<section class="slide" id="_une_solution">
-<h2>Une solution</h2>
-<div class="paragraph"><p>Utiliser un langage de <strong>balisage</strong> : markdown, wiki, LaTeX, asciidoc, &#8230;&#8203;</p></div>
-<div class="paragraph slide"><p>parce que :</p></div>
+<section class="slide" id="_une_solution_asciidoc">
+<h2>Une solution : Asciidoc</h2>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="asciidoc" src="images/asciidoc.png" />
+</div>
+</div>
+<div class="paragraph"><p>Langage de <em>balisage</em>, créé en 2002, en Python</p></div>
+<div class="paragraph slide"><p>Parce que :</p></div>
 <div class="ulist">
 <ul>
 <li class="slide">on se concentre plus sur le fond que sur la forme</li>
@@ -181,31 +186,6 @@ Membre du Bordeaux JUG<div class="ulist">
 <li class="slide">à partir d&#8217;une même source, on peut publier vers plusieurs formats</li>
 <li class="slide">on a un peu l&#8217;impression de hacker ;-)</li>
 </ul>
-</div>
-</section>
-<section class="slide" id="_asciidoc">
-<h2>Asciidoc</h2>
-<div class="imageblock" style="float: right">
-<div class="content">
-<img alt="asciidoc" src="images/asciidoc.png" />
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>Langage créé en 2002</li>
-<li>Syntaxe proche de markdown mais plus évoluée</li>
-<li>Plus polyvalent qu&#8217;un wiki</li>
-<li>Plus simple que LaTeX</li>
-<li>1<sup>ère</sup> implémentation du processeur en Python</li>
-</ul>
-</div>
-<div class="quoteblock">
-<blockquote>
-Use AsciiDoc for document markup. Really. It&#8217;s actually readable by humans, easier to parse and way more flexible than XML.
-<div class="attribution">
-<cite>Linus Torvalds</cite>
-</div>
-</blockquote>
 </div>
 </section>
 <section class="slide" id="_exemple">
@@ -238,13 +218,12 @@ NOTE: C'est l'heure de la démo !</code></pre>
 <div class="ulist">
 <ul>
 <li>Implémentation open-source écrite en <code>Ruby</code></li>
-<li>Permet de convertir des fichiers <code>asciidoc</code> vers différents backends : <code>docbook</code>, <code>html5</code>, <code>epub</code>, <code>pdf</code> (et même <code>deckjs</code>)</li>
+<li>Permet de convertir des fichiers <code>asciidoc</code> vers différents backends : <code>docbook</code>, <code>html5</code>, <code>epub</code>, <code>pdf</code> et même <code>deckjs</code> !</li>
 <li><p>
 12 août 2014 : sortie de la version <code>1.5.0</code><div class="ulist">
 <ul>
 <li>1<sup>ère</sup> version majeure après 2 ans de développement</li>
 <li>50 contributeurs, 1800 commits, 1500 tests</li>
-<li>introduit des évolutions de la syntaxe <code>asciidoc</code>, tout en gardant la compatibilité</li>
 </ul>
 </div></p></li>
 </ul>
@@ -260,7 +239,7 @@ NOTE: C'est l'heure de la démo !</code></pre>
 </section>
 <section class="slide" id="_asciidoctorj_en_action">
 <h2>Asciidoctorj en action !</h2>
-<div class="listingblock slide">
+<div class="listingblock">
 <div class="content">
 <pre class="CodeRay"><code class="java language-java">Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 
@@ -320,8 +299,8 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </div>
 </div>
 </section>
-<section class="slide" id="_asciidoctor_et_ant_unofficial">
-<h2>Asciidoctor et Ant (unofficial)</h2>
+<section class="slide" id="_asciidoctor_et_ant_em_unofficial_em">
+<h2>Asciidoctor et Ant (<em>unofficial</em>)</h2>
 <div class="listingblock">
 <div class="title"><a class="bare" href="https://github.com/binout/asciidoctor-ant">https://github.com/binout/asciidoctor-ant</a></div>
 <div class="content">
@@ -337,6 +316,7 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </section>
 <section class="slide" id="_asciidoctor_et_javadoc">
 <h2>Asciidoctor et Javadoc</h2>
+<div class="paragraph"><p><span class="image" style="float: right"><img alt="javadoc" src="images/javadoc.png" /></span></p></div>
 <div class="listingblock">
 <div class="title">Javadoc avec Asciidoclet</div>
 <div class="content">
@@ -355,8 +335,8 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </section>
 <section class="slide" id="_asciidoctor_diagram">
 <h2>asciidoctor-diagram</h2>
-<div class="paragraph slide"><p><span class="image"><img alt="asciiart" src="images/asciiart.png" /></span></p></div>
-<div class="imageblock slide">
+<div class="paragraph"><p><span class="image"><img alt="asciiart" src="images/asciiart.png" /></span></p></div>
+<div class="imageblock">
 <div class="content">
 <img alt="Diagram" src="images/diag-8e116fdfbfab355989d5357acd128d52.png" />
 </div>
@@ -364,14 +344,14 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </section>
 <section class="slide" id="_asciidoctor_diagram_et_uml">
 <h2>asciidoctor-diagram et UML</h2>
-<div class="paragraph slide"><p><span class="image" style="float: left"><img alt="class-diagram" src="images/class-diagram.png" /></span></p></div>
-<div class="imageblock slide">
+<div class="paragraph"><p><span class="image" style="float: left"><img alt="class-diagram" src="images/class-diagram.png" /></span></p></div>
+<div class="imageblock">
 <div class="content">
 <img alt="Diagram" src="images/diag-eee600d830479506282a6d91c78aa81e.png" />
 </div>
 </div>
-<div class="paragraph slide"><p><span class="image" style="float: left"><img alt="sequence-diagram" src="images/sequence-diagram.png" /></span></p></div>
-<div class="imageblock slide">
+<div class="paragraph"><p><span class="image" style="float: left"><img alt="sequence-diagram" src="images/sequence-diagram.png" /></span></p></div>
+<div class="imageblock">
 <div class="content">
 <img alt="Diagram" src="images/diag-cfba8c9efae87c338011b513b1607b2b.png" />
 </div>
@@ -379,11 +359,7 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </section>
 <section class="slide" id="_extensions_code_ruby_code_en_code_java_code">
 <h2>Extensions <code>ruby</code> en <code>java</code></h2>
-<div class="ulist">
-<ul>
-<li>TorqueBox RubyGems Maven Proxy Repository</li>
-</ul>
-</div>
+<div class="paragraph"><p>Maven proxy : <a class="bare" href="http://rubygems-proxy.torquebox.org/">http://rubygems-proxy.torquebox.org/</a></p></div>
 <div class="listingblock">
 <div class="title">gem asciidoctor-diagram</div>
 <div class="content">
@@ -433,9 +409,8 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 </div>
 </div>
 </section>
-<section class="slide canvas-image" id="_merci" style="background-image: url(images/blank-page.jpg)">
-<div class="paragraph canvas-caption"><p><a class="bare" href="http://asciidoctor.org/">http://asciidoctor.org/</a><br />
-@asciidoctor</p></div>
+<section class="slide canvas-image" id="_merci" style="background-image: url(images/merci.png)">
+
 </section>
 <div aria-role="navigation">
 <a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
