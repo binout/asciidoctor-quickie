@@ -22,34 +22,22 @@ image::bordeauxjug.jpg[float="right"]
 ** Conférence `bdx.io` le 17 octobre !
 
 [canvas-image="images/writing-is-my-hobby.jpg"]
-== Ecrire une doc ...
-[role="canvas-caption"]
-Vous n'aimez pas écrire de la doc ?
+== Writing is my hobby
 
-== Une solution
+== Une solution : Asciidoc
 
-Utiliser un langage de *balisage* : markdown, wiki, LaTeX, asciidoc, ...
-[options="step"]
-parce que :
-[options="step"]
+image::asciidoc.png[float="right"]
+
+* Langage créé en 2002
+* 1^ère^ implémentation du processeur en Python
+
+Les plus :
+
 * on se concentre plus sur le fond que sur la forme
 * c'est du texte, donc un éditeur classique suffit
 * on peut gérer l'historique avec un SCM
 * à partir d'une même source, on peut publier vers plusieurs formats
 * on a un peu l'impression de hacker ;-)
-
-== Asciidoc
-
-image::asciidoc.png[float="right"]
-
-* Langage créé en 2002
-* Syntaxe proche de markdown mais plus évoluée
-* Plus polyvalent qu'un wiki
-* Plus simple que LaTeX
-* 1^ère^ implémentation du processeur en Python
-
-[quote, Linus Torvalds]
-Use AsciiDoc for document markup. Really. It's actually readable by humans, easier to parse and way more flexible than XML.
 
 == Exemple
 
@@ -162,7 +150,7 @@ buildscript {
 apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 ----
 
-== Asciidoctor et Ant (unofficial)
+== Asciidoctor et Ant (_unofficial_)
 
 .https://github.com/binout/asciidoctor-ant
 [source,xml]
@@ -177,6 +165,8 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 ----
 
 == Asciidoctor et Javadoc
+
+image:javadoc.png[float="right"]
 
 [source, java]
 .Javadoc avec Asciidoclet
@@ -197,10 +187,9 @@ Asciidoctor est extensible ...
 
 == asciidoctor-diagram
 
-[options="step"]
 image:asciiart.png[]
 
-[ditaa, options="step"]
+[ditaa]
 ----
  +--------+   +--------+----+    /----------------\
  |        | --+ Asciidoctor +--> |                |
@@ -215,10 +204,9 @@ image:asciiart.png[]
 
 == asciidoctor-diagram et UML
 
-[options="step"]
 image:class-diagram.png[float="left"]
 
-[plantuml, options="step"]
+[plantuml]
 ----
 Class01 "1" *-- "many" Class02 : contains
 
@@ -227,10 +215,9 @@ Class03 o-- Class04 : agregation
 Class05 --> "1" Class06
 ----
 
-[options="step"]
 image:sequence-diagram.png[float="left"]
 
-[plantuml, options="step"]
+[plantuml]
 ----
 Client -> Server: Authentication Request
 Server --> Client: Authentication Response
@@ -241,7 +228,7 @@ Client <-- Server: another authentication Response
 
 == Extensions `ruby` en `java`
 
-* TorqueBox RubyGems Maven Proxy Repository
+Maven proxy : http://rubygems-proxy.torquebox.org/
 
 [source,xml]
 .gem asciidoctor-diagram
@@ -300,8 +287,5 @@ devient :
 <a href="http://www.twitter.com/binout">@binout</a>
 ----
 
-[canvas-image="images/blank-page.jpg"]
+[canvas-image="images/asciidoctor-user-manual.png"]
 == Merci
-[role="canvas-caption"]
-http://asciidoctor.org/ +
-@asciidoctor
