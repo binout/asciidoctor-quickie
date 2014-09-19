@@ -28,7 +28,7 @@ image::bordeauxjug.jpg[float="right"]
 
 image::asciidoc.png[float="right"]
 
-Langage de _balisage_, créé en 2002, en Python
+Langage de _balisage_, créé en 2002, processeur en Python
 
 [options="step"]
 Parce que :
