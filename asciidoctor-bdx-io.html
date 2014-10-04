@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content="Asciidoctor 1.5.0" name="generator" />
+<meta content="Benoit Prioux" name="author" />
+<title>Asciidoctor</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 1.2em; height: 1.2em; font-size: 0.9em; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -0.1em; }
+.conum * { color: white !important; }
+.conum + b { display: none; }
+.conum:after { content: attr(data-value); }
+.conum:not([data-value]):empty { display: none; }
+.colist table td:first-of-type { padding-right: 0.25em; }
+</style>
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{font-weight: normal}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#00}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+<link href="deck.js/core/deck.core.css" rel="stylesheet" />
+<link href="deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/goto/deck.goto.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/navigation/deck.navigation.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/style/swiss.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/transition/fade.css" media="screen" rel="stylesheet" />
+<link href="deck.js/core/print.css" media="print" rel="stylesheet" />
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>Asciidoctor</h1>
+<span id="author">Benoit Prioux</span>
+<br />
+<span id="email"><a href="mailto:benoit.prioux@gmail.com">benoit.prioux@gmail.com</a></span>
+<br />
+</section>
+<section class="slide" id="_me">
+<h2>Me</h2>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="avatar" src="images/avatar.png" />
+</div>
+</div>
+<div class="paragraph"><p><span class="icon"><i class="icon-twitter"></i></span> @binout<br />
+<span class="icon"><i class="icon-github"></i></span> <a class="bare" href="https://github.com/binout">https://github.com/binout</a></p></div>
+<div class="ulist">
+<ul>
+<li>Développeur Java depuis presque 10 ans</li>
+</ul>
+</div>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="lectra" src="images/lectra.gif" />
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>Technical Leader chez Lectra,
+numéro un mondial des solutions dédiées à l&#8217;industrie du textile (machines et logiciels)</li>
+</ul>
+</div>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="bordeauxjug" src="images/bordeauxjug.jpg" />
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>Membre du Bordeaux JUG</li>
+</ul>
+</div>
+</section>
+<section class="slide canvas-image" id="_writing_is_my_hobby" style="background-image: url(images/writing-is-my-hobby.jpg)">
+
+</section>
+<section class="slide" id="_une_solution_asciidoc">
+<h2>Une solution : Asciidoc</h2>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="asciidoc" src="images/asciidoc.png" />
+</div>
+</div>
+<div class="paragraph"><p>Langage de <em>balisage</em>, créé en 2002 avec un processeur en Python</p></div>
+<div class="paragraph slide"><p>Parce que :</p></div>
+<div class="ulist">
+<ul>
+<li class="slide">on se concentre plus sur le fond que sur la forme</li>
+<li class="slide">c&#8217;est du texte, donc un éditeur classique suffit</li>
+<li class="slide">on peut gérer l&#8217;historique avec un SCM</li>
+<li class="slide">à partir d&#8217;une même source, on peut publier vers plusieurs formats</li>
+<li class="slide">on a un peu l&#8217;impression de hacker ;-)</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_exemple">
+<h2>Exemple</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code>= Hello, Bdx.io !
+Benoit Prioux &lt;benoit.prioux@gmail.com&gt;
+
+Introduction à http://asciidoc.org[AsciiDoc].
+
+== Première Section
+
+* foo
+* bar
+
+== Deuxième Section
+
+1. item 1
+2. item 2
+
+NOTE: C'est l'heure de la démo !</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_asciidoctor">
+<h2>Asciidoctor</h2>
+<div class="paragraph"><p><span class="image" style="float: right"><img alt="dan-allen" src="images/dan-allen.png" /></span></p></div>
+<div class="paragraph"><p><a class="bare" href="https://github.com/asciidoctor">https://github.com/asciidoctor</a></p></div>
+<div class="ulist">
+<ul>
+<li>Implémentation open-source écrite en <code>Ruby</code></li>
+<li>Permet de convertir des fichiers <code>asciidoc</code> vers différents backends : <code>docbook</code>, <code>html5</code>, <code>epub</code>, <code>pdf</code> et même <code>deckjs</code> !</li>
+<li><p>
+12 août 2014 : sortie de la version <code>1.5.0</code><div class="ulist">
+<ul>
+<li>1<sup>ère</sup> version majeure après 2 ans de développement</li>
+<li>50 contributeurs, 1800 commits, 1500 tests</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide canvas-image" id="_ils_utilisent_déjà_code_asciidoctor_code" style="background-image: url(images/use-asciidoctor.jpg)">
+<div class="paragraph canvas-caption"><p>Ils utilisent déjà <code>asciidoctor</code></p></div>
+</section>
+<section class="slide canvas-image" id="_et_bien_plus_encore" style="background-image: url(images/puzzle.jpg)">
+<div class="paragraph canvas-caption"><p>Asciidoctor est extensible &#8230;&#8203;</p></div>
+</section>
+<section class="slide" id="_asciidoctor_diagram">
+<h2>asciidoctor-diagram</h2>
+<div class="paragraph"><p><span class="image"><img alt="asciiart" src="images/asciiart.png" /></span></p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="Diagram" src="images/diag-8e116fdfbfab355989d5357acd128d52.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_asciidoctor_diagram_et_uml">
+<h2>asciidoctor-diagram et UML</h2>
+<div class="paragraph"><p><span class="image" style="float: left"><img alt="class-diagram" src="images/class-diagram.png" /></span></p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="Diagram" src="images/diag-eee600d830479506282a6d91c78aa81e.png" />
+</div>
+</div>
+<div class="paragraph"><p><span class="image" style="float: left"><img alt="sequence-diagram" src="images/sequence-diagram.png" /></span></p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="Diagram" src="images/diag-cfba8c9efae87c338011b513b1607b2b.png" />
+</div>
+</div>
+</section>
+<section class="slide canvas-image" id="_in_code_we_trust" style="background-image: url(images/in-code-we-trust.png)">
+
+</section>
+<section class="slide" id="_je_suis_développeur_code_ruby_code">
+<h2>Je suis développeur <code>Ruby</code></h2>
+<div class="listingblock">
+<div class="title">Installation</div>
+<div class="content">
+<pre class="CodeRay"><code>gem install asciidoctor</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">CLI</div>
+<div class="content">
+<pre class="CodeRay"><code>$ asciidoctor -D output README.adoc</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Ruby API</div>
+<div class="content">
+<pre class="CodeRay"><code class="ruby language-ruby">require <span class="string"><span class="delimiter">'</span><span class="content">asciidoctor</span><span class="delimiter">'</span></span>
+...
+<span class="constant">Asciidoctor</span>.convert_file <span class="string"><span class="delimiter">'</span><span class="content">README.adoc</span><span class="delimiter">'</span></span>, <span class="key">to_file</span>: <span class="predefined-constant">true</span>, <span class="key">safe</span>: <span class="string"><span class="delimiter">'</span><span class="content">safe</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_je_suis_développeur_code_java_code">
+<h2>Je suis développeur <code>Java</code></h2>
+<div class="paragraph slide"><p><span class="image"><img alt="jruby" src="images/jruby.png" /></span></p></div>
+<div class="paragraph slide"><p><span class="image"><img alt="asciidoctorj" src="images/asciidoctorj.png" /></span></p></div>
+</section>
+<section class="slide" id="_asciidoctorj">
+<h2>Asciidoctorj</h2>
+<div class="listingblock">
+<div class="title"><a class="bare" href="https://github.com/asciidoctor/asciidoctorj">https://github.com/asciidoctor/asciidoctorj</a></div>
+<div class="content">
+<pre class="CodeRay"><code class="java language-java">Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+
+Options options = options().backend(<span class="string"><span class="delimiter">&quot;</span><span class="content">html5</span><span class="delimiter">&quot;</span></span>).get();
+<span class="predefined-type">String</span> rendered = asciidoctor.convert(<span class="string"><span class="delimiter">&quot;</span><span class="content">*Gras* ou _italique_ ?</span><span class="delimiter">&quot;</span></span>, options);
+
+<span class="predefined-type">System</span>.out.println(rendered);</code></pre>
+</div>
+</div>
+<div class="listingblock slide">
+<div class="title">Console</div>
+<div class="content">
+<pre class="CodeRay"><code class="html language-html"><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">paragraph</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;p&gt;</span><span class="tag">&lt;strong&gt;</span>Gras<span class="tag">&lt;/strong&gt;</span> ou <span class="tag">&lt;em&gt;</span>italique<span class="tag">&lt;/em&gt;</span> ?<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_asciidoctor_maven_plugin">
+<h2>Asciidoctor Maven Plugin</h2>
+<div class="listingblock">
+<div class="title"><a class="bare" href="https://github.com/asciidoctor/asciidoctor-maven-plugin">https://github.com/asciidoctor/asciidoctor-maven-plugin</a></div>
+<div class="content">
+<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;plugin&gt;</span>
+  <span class="tag">&lt;groupId&gt;</span>org.asciidoctor<span class="tag">&lt;/groupId&gt;</span>
+  <span class="tag">&lt;artifactId&gt;</span>asciidoctor-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
+  <span class="tag">&lt;version&gt;</span>1.5.0<span class="tag">&lt;/version&gt;</span>
+  <span class="tag">&lt;executions&gt;</span>
+    <span class="tag">&lt;execution&gt;</span>
+      <span class="tag">&lt;id&gt;</span>output-html<span class="tag">&lt;/id&gt;</span>
+      <span class="tag">&lt;phase&gt;</span>generate-resources<span class="tag">&lt;/phase&gt;</span>
+      <span class="tag">&lt;goals&gt;</span>
+        <span class="tag">&lt;goal&gt;</span>process-asciidoc<span class="tag">&lt;/goal&gt;</span>
+      <span class="tag">&lt;/goals&gt;</span>
+    <span class="tag">&lt;/execution&gt;</span>
+  <span class="tag">&lt;/executions&gt;</span>
+<span class="tag">&lt;/plugin&gt;</span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_asciidoctor_gradle_plugin">
+<h2>Asciidoctor Gradle Plugin</h2>
+<div class="listingblock">
+<div class="title"><a class="bare" href="https://github.com/asciidoctor/asciidoctor-gradle-plugin">https://github.com/asciidoctor/asciidoctor-gradle-plugin</a></div>
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">buildscript {
+    repositories {
+      jcenter()
+    }
+
+    dependencies {
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.0'
+    }
+}
+
+apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_asciidoctor_ant_task">
+<h2>Asciidoctor Ant Task</h2>
+<div class="listingblock">
+<div class="title"><a class="bare" href="https://github.com/asciidoctor/asciidoctor-ant">https://github.com/asciidoctor/asciidoctor-ant</a></div>
+<div class="content">
+<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;target</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">doc</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;taskdef</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">asciidoctor</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">classname</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.asciidoctor.ant.AsciidoctorAntTask</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/asciidoctor-ant-1.5.0.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;asciidoctor</span> <span class="attribute-name">sourceDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">src/asciidoc</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">outputDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">build/docs</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+
+<span class="tag">&lt;/target&gt;</span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_asciidoclet">
+<h2>Asciidoclet</h2>
+<div class="paragraph"><p><span class="image" style="float: right"><img alt="javadoc" src="images/javadoc.png" /></span></p></div>
+<div class="listingblock">
+<div class="title"><a class="bare" href="https://github.com/asciidoctor/asciidoclet">https://github.com/asciidoctor/asciidoclet</a></div>
+<div class="content">
+<pre class="CodeRay"><code class="java language-java"><span class="comment">/**
+ * This class has the following features:
+ *
+ * - Support for *foo*
+ * - Support for bar
+ */</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">Thing</span> <span class="directive">implements</span> Something { ... }</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_je_suis_développeur_code_javascript_code">
+<h2>Je suis développeur <code>Javascript</code></h2>
+<div class="paragraph slide"><p><span class="image"><img alt="opal" src="images/opal.png" /></span></p></div>
+<div class="paragraph slide"><p><span class="image"><img alt="asciidoctorjs" src="images/asciidoctorjs.png" /></span></p></div>
+</section>
+<section class="slide" id="_asciidoctor_js">
+<h2>Asciidoctor-js</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="javascript language-javascript"><span class="keyword">var</span> content = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://asciidoctor.org[*Asciidoctor*] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">running on http://opalrb.org[_Opal_] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">brings AsciiDoc to the browser!</span><span class="delimiter">&quot;</span></span>;
+
+<span class="keyword">var</span> options = Opal.hash2([<span class="string"><span class="delimiter">'</span><span class="content">doctype</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">attributes</span><span class="delimiter">'</span></span>], {<span class="key">doctype</span>: <span class="string"><span class="delimiter">'</span><span class="content">inline</span><span class="delimiter">'</span></span>, <span class="key">attributes</span>: [<span class="string"><span class="delimiter">'</span><span class="content">showtitle</span><span class="delimiter">'</span></span>]});
+
+<span class="keyword">var</span> html = Opal.Asciidoctor.<span class="predefined">$convert</span>(asciidoc, options);
+
+console.log(html);</code></pre>
+</div>
+</div>
+</section>
+<section class="slide canvas-image" id="_merci" style="background-image: url(images/merci.png)">
+
+</section>
+<div aria-role="navigation">
+<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+</div>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+<form action="." class="goto-form" method="get">
+<label for="goto-slide">Go to Slide:</label>
+<input id="goto-slide" list="goto-datalist" name="slidenum" type="text" />
+<datalist id="goto-data-list"></datalist>
+<input type="submit" value="Go" />
+</form>
+</div>
+<script src="deck.js/jquery.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script type="text/javascript">
+  //<![CDATA[
+    (function($, deck, undefined) {
+      $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+      $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+    
+      $.extend(true, $[deck].defaults, {
+          countNested: false
+      });
+    
+      $.deck('.slide');
+    })(jQuery, 'deck');
+  //]]>
+</script>
+<style type="text/css">
+  /*<![CDATA[*/
+    .slide.canvas-image {
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-box;
+    display: box;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -moz-box-align: start;
+    -webkit-box-align: start;
+    -ms-box-align: start;
+    box-align: start;
+    -moz-box-pack: start;
+    -webkit-box-pack: start;
+    -ms-box-pack: start;
+    box-pack: start;}
+    
+    .bottom-left {
+      left: 1%;
+      bottom: 20%; }
+    
+    .top-left {
+      left: 1%;
+      top: 20%; }
+    
+    .bottom-right {
+      right: 1%;
+      bottom: 20%; }
+    
+    .top-right {
+      right: 1%;
+      top: 20%; }
+    
+    .center-up {
+      right: 50%;
+      top: 1%;
+    }
+    
+    .center-down {
+      right: 50%;
+      bottom: 1%;
+    }
+    .canvas-image .canvas-caption p {
+      text-align: center;
+      padding-top: 0;
+      padding: 0;
+      -moz-transform: none;
+      -webkit-transform: none;
+      -o-transform: none;
+      -ms-transform: none;
+      transform: none;
+      display: inline;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      font-weight: bold;
+      font-size: 58px;
+      -webkit-box-shadow: 2px 2px 2px #000;
+      -moz-box-shadow: 2px 2px 2px #000;
+      box-shadow: 2px 2px 2px #000;
+      padding: 1rem;
+      color: white; }
+    kbd.keyseq { color: #555555; }
+    kbd:not(.keyseq) {
+      display: inline-block;
+      color: #222222;
+      font-size: 0.7em;
+      line-height: 1.4;
+      background-color: #F7F7F7;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      margin: -0.15em 0.15em 0 0.15em;
+      padding: 0.2em 0.6em;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    kbd kbd:first-child { margin-left: 0; }
+    kbd kbd:last-child { margin-right: 0; }
+  /*]]>*/
+</style>
+</body>
+</html>
