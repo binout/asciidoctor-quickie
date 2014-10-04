@@ -124,7 +124,30 @@ Client -> Server: Another authentication Request
 Client <-- Server: another authentication Response
 ----
 
+[canvas-image="images/in-code-we-trust.png"]
+== In code we trust
+
 == Je suis développeur `Ruby`
+
+[source]
+.Installation
+----
+gem install asciidoctor
+----
+
+[source]
+.CLI
+----
+$ asciidoctor -D output README.adoc
+----
+
+[source, ruby]
+.Ruby API
+----
+require 'asciidoctor'
+...
+Asciidoctor.convert_file 'README.adoc', to_file: true, safe: 'safe'
+----
 
 == Je suis développeur `Java`
 
@@ -134,8 +157,9 @@ image:jruby.png[]
 [options="step"]
 image:asciidoctorj.png[]
 
-== Asciidoctorj en action !
+== Asciidoctorj
 
+.https://github.com/asciidoctor/asciidoctorj
 [source,java]
 ----
 Asciidoctor asciidoctor = Asciidoctor.Factory.create();
@@ -156,9 +180,9 @@ System.out.println(rendered);
 ----
 
 
-== Asciidoctor et Maven
+== Asciidoctor Maven Plugin
 
-.pom.xml
+.https://github.com/asciidoctor/asciidoctor-maven-plugin
 [source,xml]
 ----
 <plugin>
@@ -177,9 +201,9 @@ System.out.println(rendered);
 </plugin>
 ----
 
-== Asciidoctor et Gradle
+== Asciidoctor Gradle Plugin
 
-.build.gradle
+.https://github.com/asciidoctor/asciidoctor-gradle-plugin
 [source,groovy]
 [subs="attributes"]
 ----
@@ -196,7 +220,7 @@ buildscript {
 apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 ----
 
-== Asciidoctor et Ant
+== Asciidoctor Ant Task
 
 .https://github.com/asciidoctor/asciidoctor-ant
 [source,xml]
@@ -205,18 +229,18 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 
   <taskdef name="asciidoctor"
            classname="org.asciidoctor.ant.AsciidoctorAntTask"
-           classpath="lib/asciidoctor-ant.jar"/>
+           classpath="lib/asciidoctor-ant-1.5.0.jar"/>
   <asciidoctor sourceDirectory="src/asciidoc" outputDirectory="build/docs"/>
 
 </target>
 ----
 
-== Asciidoctor et Javadoc
+== Asciidoclet
 
 image:javadoc.png[float="right"]
 
 [source, java]
-.Javadoc avec Asciidoclet
+.https://github.com/asciidoctor/asciidoclet
 ----
 /**
  * This class has the following features:
@@ -230,13 +254,24 @@ public class Thing implements Something { ... }
 
 == Je suis développeur `Javascript`
 
+[options="step"]
+image:opal.png[]
+
+[options="step"]
+image:asciidoctorjs.png[]
+
+== Asciidoctor-js
+
 [source, javascript]
 ----
 var content = "http://asciidoctor.org[*Asciidoctor*] " +
     "running on http://opalrb.org[_Opal_] " +
     "brings AsciiDoc to the browser!";
+
 var options = Opal.hash2(['doctype', 'attributes'], {doctype: 'inline', attributes: ['showtitle']});
+
 var html = Opal.Asciidoctor.$convert(asciidoc, options);
+
 console.log(html);
 ----
 
