@@ -232,29 +232,12 @@ public class Thing implements Something { ... }
 
 [source, javascript]
 ----
-#!/usr/bin/env jjs -scripting
-
-load("./lib/opal.js");
-load("./lib/asciidoctor.js");
-
-var data = <<<EOS;
-= asciidoctor.js, AsciiDoc in JavaScript
-Doc Writer <docwriter@example.com>
-
-Asciidoctor and Opal come together to bring
-http://asciidoc.org[AsciiDoc] to the browser!.
-
-== Technologies
-
-* AsciiDoc
-* Asciidoctor
-* Opal
-
-NOTE: That's all she wrote!!!
-EOS
-
-print(Opal.Asciidoctor.$render(data));
-
+var content = "http://asciidoctor.org[*Asciidoctor*] " +
+    "running on http://opalrb.org[_Opal_] " +
+    "brings AsciiDoc to the browser!";
+var options = Opal.hash2(['doctype', 'attributes'], {doctype: 'inline', attributes: ['showtitle']});
+var html = Opal.Asciidoctor.$convert(asciidoc, options);
+console.log(html);
 ----
 
 [canvas-image="images/merci.png"]
