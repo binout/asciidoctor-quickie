@@ -1,0 +1,261 @@
+= Asciidoctor
+Benoit Prioux <benoit.prioux@gmail.com>
+:icons: font
+
+== Me
+
+image::avatar.png[float="right"]
+
+icon:twitter[] @binout +
+icon:github[] https://github.com/binout
+
+* Développeur Java depuis presque 10 ans
+
+image::lectra.gif[float="right"]
+
+* Technical Leader chez Lectra,
+numéro un mondial des solutions dédiées à l'industrie du textile (machines et logiciels)
+
+image::bordeauxjug.jpg[float="right"]
+
+* Membre du Bordeaux JUG
+
+[canvas-image="images/writing-is-my-hobby.jpg"]
+== Writing is my hobby
+
+== Une solution : Asciidoc
+
+image::asciidoc.png[float="right"]
+
+Langage de _balisage_, créé en 2002 avec un processeur en Python
+
+[options="step"]
+Parce que :
+
+[options="step"]
+* on se concentre plus sur le fond que sur la forme
+* c'est du texte, donc un éditeur classique suffit
+* on peut gérer l'historique avec un SCM
+* à partir d'une même source, on peut publier vers plusieurs formats
+* on a un peu l'impression de hacker ;-)
+
+== Exemple
+
+[source]
+----
+= Hello, Bdx.io !
+Benoit Prioux <benoit.prioux@gmail.com>
+
+Introduction à http://asciidoc.org[AsciiDoc].
+
+== Première Section
+
+* foo
+* bar
+
+== Deuxième Section
+
+1. item 1
+2. item 2
+
+NOTE: C'est l'heure de la démo !
+----
+
+== Asciidoctor
+
+image:dan-allen.png[float="right"]
+
+https://github.com/asciidoctor
+
+* Implémentation open-source écrite en `Ruby`
+* Permet de convertir des fichiers `asciidoc` vers différents backends : `docbook`, `html5`, `epub`, `pdf` et même `deckjs` !
+* 12 août 2014 : sortie de la version `1.5.0`
+** 1^ère^ version majeure après 2 ans de développement
+** 50 contributeurs, 1800 commits, 1500 tests
+
+[canvas-image="images/use-asciidoctor.jpg"]
+== Ils utilisent déjà `asciidoctor`
+[role="canvas-caption"]
+Ils utilisent déjà `asciidoctor`
+
+[canvas-image="images/puzzle.jpg"]
+== Et bien plus encore ...
+[role="canvas-caption"]
+Asciidoctor est extensible ...
+
+== asciidoctor-diagram
+
+image:asciiart.png[]
+
+[ditaa]
+----
+ +--------+   +--------+----+    /----------------\
+ |        | --+ Asciidoctor +--> |                |
+ |  Text  |   +-------------+    |Beautiful output|
+ |Document|   |   !magic!   |    |                |
+ |     {d}|   |             |    |                |
+ +---+----+   +-------------+    \----------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
+----
+
+== asciidoctor-diagram et UML
+
+image:class-diagram.png[float="left"]
+
+[plantuml]
+----
+Class01 "1" *-- "many" Class02 : contains
+
+Class03 o-- Class04 : agregation
+
+Class05 --> "1" Class06
+----
+
+image:sequence-diagram.png[float="left"]
+
+[plantuml]
+----
+Client -> Server: Authentication Request
+Server --> Client: Authentication Response
+
+Client -> Server: Another authentication Request
+Client <-- Server: another authentication Response
+----
+
+== Je suis développeur `Ruby`
+
+== Je suis développeur `Java`
+
+[options="step"]
+image:jruby.png[]
+
+[options="step"]
+image:asciidoctorj.png[]
+
+== Asciidoctorj en action !
+
+[source,java]
+----
+Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+
+Options options = options().backend("html5").get();
+String rendered = asciidoctor.convert("*Gras* ou _italique_ ?", options);
+
+System.out.println(rendered);
+----
+
+[options="step"]
+.Console
+[source,html]
+----
+<div class="paragraph">
+<p><strong>Gras</strong> ou <em>italique</em> ?</p>
+</div>
+----
+
+
+== Asciidoctor et Maven
+
+.pom.xml
+[source,xml]
+----
+<plugin>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-maven-plugin</artifactId>
+  <version>1.5.0</version>
+  <executions>
+    <execution>
+      <id>output-html</id>
+      <phase>generate-resources</phase>
+      <goals>
+        <goal>process-asciidoc</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+----
+
+== Asciidoctor et Gradle
+
+.build.gradle
+[source,groovy]
+[subs="attributes"]
+----
+buildscript {
+    repositories {
+      jcenter()
+    }
+
+    dependencies {
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.0'
+    }
+}
+
+apply plugin: 'org.asciidoctor.gradle.asciidoctor'
+----
+
+== Asciidoctor et Ant
+
+.https://github.com/asciidoctor/asciidoctor-ant
+[source,xml]
+----
+<target name="doc">
+
+  <taskdef name="asciidoctor"
+           classname="org.asciidoctor.ant.AsciidoctorAntTask"
+           classpath="lib/asciidoctor-ant.jar"/>
+  <asciidoctor sourceDirectory="src/asciidoc" outputDirectory="build/docs"/>
+
+</target>
+----
+
+== Asciidoctor et Javadoc
+
+image:javadoc.png[float="right"]
+
+[source, java]
+.Javadoc avec Asciidoclet
+----
+/**
+ * This class has the following features:
+ *
+ * - Support for *foo*
+ * - Support for bar
+ */
+public class Thing implements Something { ... }
+----
+
+
+== Je suis développeur `Javascript`
+
+[source, javascript]
+----
+#!/usr/bin/env jjs -scripting
+
+load("./lib/opal.js");
+load("./lib/asciidoctor.js");
+
+var data = <<<EOS;
+= asciidoctor.js, AsciiDoc in JavaScript
+Doc Writer <docwriter@example.com>
+
+Asciidoctor and Opal come together to bring
+http://asciidoc.org[AsciiDoc] to the browser!.
+
+== Technologies
+
+* AsciiDoc
+* Asciidoctor
+* Opal
+
+NOTE: That's all she wrote!!!
+EOS
+
+print(Opal.Asciidoctor.$render(data));
+
+----
+
+[canvas-image="images/merci.png"]
+== Merci
