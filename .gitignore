@@ -4,6 +4,7 @@ pom.xml.releaseBackup
 pom.xml.next
 release.properties
 .idea
+.java-version
 *.iml
 .DS_Store
 diag*.png

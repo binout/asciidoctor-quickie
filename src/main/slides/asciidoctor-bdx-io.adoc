@@ -27,7 +27,7 @@ image::bordeauxjug.jpg[float="right"]
 
 image::asciidoc.png[float="right"]
 
-Langage de _balisage_, créé en 2002 avec un processeur en Python
+Langage de _balisage_, créé en 2002 avec un processeur en `Python`
 
 [options="step"]
 Parce que :
@@ -126,6 +126,8 @@ Client <-- Server: another authentication Response
 
 [canvas-image="images/in-code-we-trust.png"]
 == In code we trust
+[role="canvas-caption"]
+Asciidoctor et les développeurs
 
 == Je suis développeur `Ruby`
 
@@ -226,12 +228,12 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 [source,xml]
 ----
 <target name="doc">
-
   <taskdef name="asciidoctor"
            classname="org.asciidoctor.ant.AsciidoctorAntTask"
            classpath="lib/asciidoctor-ant-1.5.0.jar"/>
-  <asciidoctor sourceDirectory="src/asciidoc" outputDirectory="build/docs"/>
 
+  <asciidoctor sourceDirectory="src/asciidoc"
+               outputDirectory="build/docs"/>
 </target>
 ----
 
@@ -260,8 +262,9 @@ image:opal.png[]
 [options="step"]
 image:asciidoctorjs.png[]
 
-== Asciidoctor-js
+== Asciidoctor.js
 
+.https://github.com/asciidoctor/asciidoctor.js
 [source, javascript]
 ----
 var content = "http://asciidoctor.org[*Asciidoctor*] " +
@@ -274,6 +277,10 @@ var html = Opal.Asciidoctor.$convert(asciidoc, options);
 
 console.log(html);
 ----
+
+== Asciidoctor.js et Chrome
+
+image:asciidoctor-chrome.png[]
 
 [canvas-image="images/merci.png"]
 == Merci
