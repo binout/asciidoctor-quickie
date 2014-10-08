@@ -227,14 +227,15 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'
 .https://github.com/asciidoctor/asciidoctor-ant
 [source,xml]
 ----
-<target name="doc">
-  <taskdef name="asciidoctor"
-           classname="org.asciidoctor.ant.AsciidoctorAntTask"
-           classpath="lib/asciidoctor-ant-1.5.0.jar"/>
-
-  <asciidoctor sourceDirectory="src/asciidoc"
-               outputDirectory="build/docs"/>
-</target>
+<project xmlns:asciidoctor="antlib:org.asciidoctor.ant">
+...
+    <target name="doc">
+        <taskdef uri="antlib:org.asciidoctor.ant" resource="org/asciidoctor/ant/antlib.xml"
+                 classpath="lib/asciidoctor-ant-1.5.0.jar"/>
+        <asciidoctor:convert sourceDirectory="src/asciidoc" outputDirectory="target"/>
+    </target>
+...
+</project>
 ----
 
 == Asciidoclet
