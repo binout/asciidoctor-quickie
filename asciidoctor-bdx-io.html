@@ -125,6 +125,15 @@ table.CodeRay td.code>pre{padding:0}
 <span id="email"><a href="mailto:benoit.prioux@gmail.com">benoit.prioux@gmail.com</a></span>
 <br />
 </section>
+<div id="preamble">
+<div class="sectionbody">
+<div class="imageblock" style="float: right">
+<div class="content">
+<img alt="bdx io" src="images/bdx-io.png" />
+</div>
+</div>
+</div>
+</div>
 <section class="slide" id="_me">
 <h2>Me</h2>
 <div class="imageblock" style="float: right">
@@ -353,14 +362,17 @@ apply plugin: 'org.asciidoctor.gradle.asciidoctor'</code></pre>
 <div class="listingblock">
 <div class="title"><a class="bare" href="https://github.com/asciidoctor/asciidoctor-ant">https://github.com/asciidoctor/asciidoctor-ant</a></div>
 <div class="content">
-<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;target</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">doc</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-  <span class="tag">&lt;taskdef</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">asciidoctor</span><span class="delimiter">&quot;</span></span>
-           <span class="attribute-name">classname</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.asciidoctor.ant.AsciidoctorAntTask</span><span class="delimiter">&quot;</span></span>
-           <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/asciidoctor-ant-1.5.0.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;project</span> <span class="attribute-name">xmlns:asciidoctor</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">antlib:org.asciidoctor.ant</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+...
+    <span class="tag">&lt;target</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">doc</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;taskdef</span> <span class="attribute-name">uri</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">antlib:org.asciidoctor.ant</span><span class="delimiter">&quot;</span></span>
+                 <span class="attribute-name">resource</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org/asciidoctor/ant/antlib.xml</span><span class="delimiter">&quot;</span></span>
+                 <span class="attribute-name">classpath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lib/asciidoctor-ant-1.5.0.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
 
-  <span class="tag">&lt;asciidoctor</span> <span class="attribute-name">sourceDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">src/asciidoc</span><span class="delimiter">&quot;</span></span>
-               <span class="attribute-name">outputDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">build/docs</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-<span class="tag">&lt;/target&gt;</span></code></pre>
+        <span class="tag">&lt;asciidoctor:convert</span> <span class="attribute-name">sourceDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">src/asciidoc</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">outputDirectory</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">target</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/target&gt;</span>
+...
+<span class="tag">&lt;/project&gt;</span></code></pre>
 </div>
 </div>
 </section>
